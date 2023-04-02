@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiosk Interface</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+</head>
+<body>
+    <div class="kiosk-container">
+        <nav class="vertical-menu">
+            <button class="tab-button" data-target="alerts">Alerts/Notifications</button>
+            <button class="tab-button" data-target="building-map">Building Map</button>
+            <button class="tab-button" data-target="campus-map">Campus Map</button>
+            <button class="tab-button" data-target="campus-info">Information about Campus</button>
+            <button class="tab-button" data-target="event-calendar">Event Calendar</button>
+            <button class="tab-button" data-target="faq">Frequently Asked Questions</button>
+        </nav>
+        <div class="tab-content">
+            <div class="tab" id="alerts">
+                <div class="alert">
+                    <i class="fas fa-exclamation-triangle" style="color: red;"></i>
+                    <span>Severe weather alert: Heavy wind expected throughout the day.</span>
+                </div>
+                <div class="notification">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Room change: CMSC434 has been moved to Room 9420.</span>
+                </div>
+            <!-- Add more notifications as needed --> </div>
+            <div class="tab" id="building-map">Building Map content...</div>
+            <div class="tab" id="campus-map">Campus Map content...</div>
+            <div class="tab" id="campus-info">Information about Campus content...</div>
+            <div class="tab" id="event-calendar">Event Calendar content...</div>
+            <div class="tab" id="faq">Frequently Asked Questions content...</div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

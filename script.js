@@ -18,4 +18,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Set the first tab active by default
 tabButtons[0].click();
+
+// Initialize the calendar
+$('#calendar').fullCalendar({
+    events: [
+        {
+            title: 'Event 1',
+            start: '2023-04-10T10:00:00',
+            end: '2023-04-10T12:00:00'
+        },
+        {
+            title: 'Event 2',
+                start: '2023-04-12T14:00:00',
+                end: '2023-04-12T16:00:00'
+            },
+            {
+                title: 'Event 3',
+                start: '2023-04-15T18:00:00',
+                end: '2023-04-15T20:00:00'
+            }
+            // Add more events as needed
+        ],
+        header: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'month,agendaWeek,agendaDay'
+        },
+        defaultView: 'month'
+    });
 });

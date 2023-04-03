@@ -92,3 +92,12 @@ html, body {
 .alert span {
     font-size: 20px;
 }
+.search-bar {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+}
+

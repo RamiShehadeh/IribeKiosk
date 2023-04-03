@@ -11,6 +11,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet' />
+
 </head>
 <body>
     <div class="kiosk-container">
@@ -24,21 +27,12 @@
             <button class="tab-button" data-target="faq">Frequently Asked Questions</button>
         </nav>
         <div class="tab-content">
-            <div class="tab" id="alerts">
-                <div class="alert">
-                    <i class="fas fa-exclamation-triangle" style="color: red;"></i>
-                    <span>Severe weather alert: Heavy wind expected throughout the day.</span>
-                </div>
-                <div class="notification">
-                    <i class="fas fa-info-circle"></i>
-                    <span>Room change: CMSC434 has been moved to Room 9420.</span>
-                </div>
-            <!-- Add more notifications as needed --> </div>
-            <div class="tab" id="building-map">Building Map content...</div>
-            <div class="tab" id="campus-map">Campus Map content...</div>
-            <div class="tab" id="campus-info">Information about Campus content...</div>
+            <div class="tab" id="alerts"></div>
+            <div class="tab" id="building-map"></div>
+            <div class="tab" id="campus-map"></div>
+            <div class="tab" id="campus-info"></div>
             <div class="tab" id="event-calendar"><div id="calendar"></div></div>
-            <div class="tab" id="faq">Frequently Asked Questions content...</div>
+            <div class="tab" id="faq"></div>
         </div>
     </div>
     <script src="script.js"></script>

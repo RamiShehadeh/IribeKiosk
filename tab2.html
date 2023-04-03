@@ -1,0 +1,13 @@
+<div id='campus-map'></div>
+<script> 
+    mapboxgl.accessToken = 'pk.eyJ1IjoicmFtaXNoZWhhZGVoIiwiYSI6ImNsZzBiZzVtNDBrcGgzcnBkbmFxemw1MG0ifQ.C73tgyLtRELBQSBHwx7pSA';
+    const map = new mapboxgl.Map({
+        container: 'campus-map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [-76.9426, 38.9907], // University of Maryland, College Park campus coordinates
+        zoom: 15
+    });
+    
+    // Add navigation controls to the map
+    map.addControl(new mapboxgl.NavigationControl());
+    </script>

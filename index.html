@@ -3,35 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kiosk Interface</title>
+    <title>Brendan Iribe Center Welcome Kiosk</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+    <!-- Include Calendar CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <!-- Include Calendar -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
-    <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet' />
+    <!-- Include Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+    <!-- Include Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
 
 </head>
 <body>
     <div class="kiosk-container">
         <nav class="vertical-menu">
             <input type="search" class="search-bar" placeholder="Search...">
-            <button class="tab-button" data-target="alerts">Alerts/Notifications</button>
-            <button class="tab-button" data-target="building-map">Building Map</button>
-            <button class="tab-button" data-target="campus-map">Campus Map</button>
-            <button class="tab-button" data-target="campus-info">Information about Campus</button>
-            <button class="tab-button" data-target="event-calendar">Event Calendar</button>
-            <button class="tab-button" data-target="faq">Frequently Asked Questions</button>
+            <button class="tab-button" data-target="alerts" onclick="this.classList.toggle('active')">Alerts/Notifications</button>
+            <button class="tab-button" data-target="building-map" onclick="this.classList.toggle('active')">Building Map</button>
+            <button class="tab-button" data-target="campus-map" onclick="this.classList.toggle('active')">Campus Map</button>
+            <button class="tab-button" data-target="campus-info" onclick="this.classList.toggle('active')">Information about Campus</button>
+            <button class="tab-button" data-target="event-calendar" onclick="this.classList.toggle('active')">Event Calendar</button>
+            <button class="tab-button" data-target="faq" onclick="this.classList.toggle('active')">Frequently Asked Questions</button>
         </nav>
         <div class="tab-content">
             <div class="tab" id="alerts"></div>
             <div class="tab" id="building-map"></div>
             <div class="tab" id="campus-map"></div>
             <div class="tab" id="campus-info"></div>
-            <div class="tab" id="event-calendar"><div id="calendar"></div></div>
+            <div class="tab" id="event-calendar"><h1 style="text-align: center;"> Event Calendar </h1><div id="calendar"></div></div>
             <div class="tab" id="faq"></div>
         </div>
     </div>

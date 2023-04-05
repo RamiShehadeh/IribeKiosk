@@ -1,13 +1,12 @@
-<div id='campus-map'></div>
-<script> 
-    mapboxgl.accessToken = 'pk.eyJ1IjoicmFtaXNoZWhhZGVoIiwiYSI6ImNsZzBiZzVtNDBrcGgzcnBkbmFxemw1MG0ifQ.C73tgyLtRELBQSBHwx7pSA';
-    const map = new mapboxgl.Map({
-        container: 'campus-map',
-        style: 'mapbox://styles/mapbox/streets-v11',
-        center: [-76.9426, 38.9907], // University of Maryland, College Park campus coordinates
-        zoom: 15
-    });
+<div id='campus-map' class="map"> 
     
-    // Add navigation controls to the map
-    map.addControl(new mapboxgl.NavigationControl());
-    </script>
+    <script>
+        var map = L.map('campus-map').setView([38.9907, -76.9426], 17);
+      
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+          maxZoom: 19
+        }).addTo(map);
+      
+      </script>   
+</div>

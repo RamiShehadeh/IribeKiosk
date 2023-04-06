@@ -1,1 +1,34 @@
+<script type='text/javascript'>
+    function GetMap()
+    {   
+        // Set the coordinates for the University of Maryland, College Park campus.
+        var bounds = Microsoft.Maps.LocationRect.fromLocations(new Microsoft.Maps.Location(38.994449,-76.955481),
+             new Microsoft.Maps.Location(38.973485,-76.925221));
+        var center = new Microsoft.Maps.Location(38.989064,-76.936083); // center is Iribe
 
+        // Initialize the map with the specified options.
+        var map = new Microsoft.Maps.Map('#campusmap', {
+            center: center,
+            zoom: 16,
+            minZoom: 15,
+            maxZoom: 19,
+            maxBounds: bounds
+        });
+        //Create custom Pushpins
+        var pin_iribe = new Microsoft.Maps.Pushpin(center, {
+            title: 'YOU ARE HERE',
+            subTitle: 'Brendan Iribe Center',
+            text: '1'
+        });
+        var pin_metro = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(38.978432,-76.928295), {
+            title: 'College Park Metro Station',
+            subTitle: 'Access to Green/Yellow lines',
+            text: '1'
+        });
+
+        //Add the pushpins to the map
+        map.entities.push(pin_iribe);
+        map.entities.push(pin_metro);
+    }
+    </script>
+<div id = "campusmap"></div> 

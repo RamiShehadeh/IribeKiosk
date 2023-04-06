@@ -20,6 +20,9 @@
     <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"
     type="text/javascript" charset="utf-8"></script>
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <!-- Include BING maps -->
+    <script type='text/javascript' src='http://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=AsS2WJiFEXQ7qijqiPhUD60JIW9Uj4HW2Y_q6Ua9jHGziDoy4_WS0OFfBrELlsFo' async defer></script>
+   
 
 
 </head>
@@ -27,11 +30,11 @@
     <div class="kiosk-container">
         <div class="alerts-bar">
             <div class="alerts-container">
-              <!-- Make this get the Alerts from tab0.html-->
+              <!-- this gets the Alerts from tab0.html-->
             </div>
         </div>
+        <img src="logo.png" alt="Testudo" class="logo" />
         <nav class="vertical-menu">
-            <input type="search" class="search-bar" placeholder="Search...">
             <button class="tab-button" data-target="alerts" onclick="this.classList.toggle('active')">Alerts/Notifications</button>
             <button class="tab-button" data-target="building-map" onclick="this.classList.toggle('active')">Building Map</button>
             <button class="tab-button" data-target="campus-map" onclick="this.classList.toggle('active')">Campus Map</button>
@@ -42,24 +45,7 @@
         <div class="tab-content">
             <div class="tab" id="alerts"></div>
             <div class="tab" id="building-map"></div>
-            <div class="tab" id="campus-map"> 
-                <script>
-                    var platform = new H.service.Platform({
-                    'apikey': 'WilKs3VlVj4OzDlvYVBolDNjgNwfelFwoNFjI4lutY4'});
-            
-                    // Obtain the default map types from the platform object:
-                    var defaultLayers = platform.createDefaultLayers();
-            
-                    // Instantiate (and display) a map object:
-                    var map = new H.Map(
-                        document.getElementById('campus-map'),
-                        defaultLayers.vector.normal.map,
-                        {
-                        zoom: 10,
-                        center: { lat: 38.9907, lng: -76.9426}
-                        });
-                </script>   
-            </div>
+            <div class="tab" id="campus-map"></div>
             <div class="tab" id="campus-info"></div>
             <div class="tab" id="event-calendar"><h1 style="text-align: center;"> Event Calendar </h1><div id="calendar"></div></div>
             <div class="tab" id="faq"></div>

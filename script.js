@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Load the content of each tab from separate HTML files
     $("#alerts").load("tab0.html");
     $("#building-map").load("tab1.html");
-    //$("#campus-map").load("tab2.html");
+    $("#campus-map").load("tab2.html");
     $("#campus-info").load("tab3.html");
     $("#faq").load("tab5.html");
     // Load additional tab content as needed
@@ -144,3 +144,4 @@ $(".alerts-container").load("tab0.html .alert, .notification", function() {
 
   scrollAlerts();
 });
+

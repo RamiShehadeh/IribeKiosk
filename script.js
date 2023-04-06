@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', () => {
     const tabButtons = document.querySelectorAll('.tab-button');
     const tabs = document.querySelectorAll('.tab');
@@ -35,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     
 });
-
 
 /* initialize event calendar */
 function initializeCalendar() {

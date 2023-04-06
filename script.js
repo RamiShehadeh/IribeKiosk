@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Load the content of each tab from separate HTML files
     $("#alerts").load("tab0.html");
     $("#building-map").load("tab1.html");
-    $("#campus-map").load("tab2.html");
+    //$("#campus-map").load("tab2.html");
     $("#campus-info").load("tab3.html");
     $("#faq").load("tab5.html");
     // Load additional tab content as needed
@@ -126,3 +126,21 @@ function closeEventBubble() {
     eventBubble.remove();
   }
 }
+
+// Load the content of the alert/notification bar from tab0.html
+$(".alerts-container").load("tab0.html .alert, .notification", function() {
+  // Initialize the scrolling functionality for the alert/notification bar
+  const alertBarContent = $(".alerts-container").html();
+  $(".alerts-container").html(alertBarContent + " " + alertBarContent);
+
+  const scrollAlerts = () => {
+    $(".alerts-container").animate(
+      { scrollLeft: $(".alerts-container").scrollLeft() + 1 },
+      30,
+      "linear",
+      scrollAlerts
+    );
+  };
+
+  scrollAlerts();
+});

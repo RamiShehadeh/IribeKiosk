@@ -13,14 +13,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <!-- Include Calendar -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
-    <!-- Include Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
-    <!-- Include Leaflet JavaScript -->
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+
+    <!-- Include HEREMAPS -->
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js"
+    type="text/javascript" charset="utf-8"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"
+    type="text/javascript" charset="utf-8"></script>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+
 
 </head>
 <body>
     <div class="kiosk-container">
+        <div class="alerts-bar">
+            <div class="alerts-container">
+              <!-- Make this get the Alerts from tab0.html-->
+            </div>
+        </div>
         <nav class="vertical-menu">
             <input type="search" class="search-bar" placeholder="Search...">
             <button class="tab-button" data-target="alerts" onclick="this.classList.toggle('active')">Alerts/Notifications</button>
@@ -33,7 +42,24 @@
         <div class="tab-content">
             <div class="tab" id="alerts"></div>
             <div class="tab" id="building-map"></div>
-            <div class="tab" id="campus-map"></div>
+            <div class="tab" id="campus-map"> 
+                <script>
+                    var platform = new H.service.Platform({
+                    'apikey': 'WilKs3VlVj4OzDlvYVBolDNjgNwfelFwoNFjI4lutY4'});
+            
+                    // Obtain the default map types from the platform object:
+                    var defaultLayers = platform.createDefaultLayers();
+            
+                    // Instantiate (and display) a map object:
+                    var map = new H.Map(
+                        document.getElementById('campus-map'),
+                        defaultLayers.vector.normal.map,
+                        {
+                        zoom: 10,
+                        center: { lat: 38.9907, lng: -76.9426}
+                        });
+                </script>   
+            </div>
             <div class="tab" id="campus-info"></div>
             <div class="tab" id="event-calendar"><h1 style="text-align: center;"> Event Calendar </h1><div id="calendar"></div></div>
             <div class="tab" id="faq"></div>

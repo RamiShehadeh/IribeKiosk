@@ -33,23 +33,32 @@
               <!-- this gets the Alerts from tab0.html-->
             </div>
         </div>
-        <img src="logo.png" alt="Testudo" class="logo" />
-        <nav class="vertical-menu">
-            <button class="tab-button" data-target="alerts" onclick="this.classList.toggle('active')">Alerts/Notifications</button>
+        <img src="testudo.png" alt="Testudo" class="testudo" />
+        <nav class="vertical-menu-left">
             <button class="tab-button" data-target="building-map" onclick="this.classList.toggle('active')">Building Map</button>
             <button class="tab-button" data-target="campus-map" onclick="this.classList.toggle('active')">Campus Map</button>
             <button class="tab-button" data-target="campus-info" onclick="this.classList.toggle('active')">Information about Campus</button>
-            <button class="tab-button" data-target="event-calendar" onclick="this.classList.toggle('active')">Event Calendar</button>
-            <button class="tab-button" data-target="faq" onclick="this.classList.toggle('active')">Frequently Asked Questions</button>
         </nav>
+        
         <div class="tab-content">
             <div class="tab" id="alerts"></div>
             <div class="tab" id="building-map"></div>
             <div class="tab" id="campus-map"></div>
             <div class="tab" id="campus-info"></div>
-            <div class="tab" id="event-calendar"><h1 style="text-align: center;"> Event Calendar </h1><div id="calendar"></div></div>
+            <div class="tab" id="event-calendar">
+                <h1 style="text-align: center;"> Event Calendar </h1>
+                <div id="calendar"></div> 
+                <div id="upcoming-events"><h2>Upcoming Events:</h2> </div>
+                </div>
+                
             <div class="tab" id="faq"></div>
         </div>
+        <img src="umd_logo.png" alt="UMD" class="logo" />
+        <nav class="vertical-menu-right">
+            <button class="tab-button" data-target="alerts" onclick="this.classList.toggle('active')">Alerts/Notifications</button>
+            <button class="tab-button" data-target="event-calendar" onclick="this.classList.toggle('active')">Event Calendar</button>
+            <button class="tab-button" data-target="faq" onclick="this.classList.toggle('active')">Frequently Asked Questions</button>
+        </nav>
     </div>
     <script src="script.js"></script>
 </body>

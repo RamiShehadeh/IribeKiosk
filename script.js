@@ -22,12 +22,14 @@ document.addEventListener('DOMContentLoaded', () => {
   
     // Initialize the calendar
     initializeCalendar();
+    displayUpcomingEvents(events);
 
     // Load the content of each tab from separate HTML files
     $("#alerts").load("tab0.html");
     $("#building-map").load("tab1.html");
     $("#campus-map").load("tab2.html");
     $("#campus-info").load("tab3.html");
+    //$("#event-calendar").load("tab4.html");
     $("#faq").load("tab5.html");
     // Load additional tab content as needed
 
@@ -38,32 +40,34 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* initialize event calendar */
+const events = [
+  {
+    title: 'Annual Concrete Eating Event',
+    start: '2023-04-05T10:00:00',
+    end: '2023-04-05T12:00:00',
+    location: 'Room 0101',
+    description: 'Join us in devouring these cinder blocks for a chance to win a $10 Starbucks giftcard!'
+  },
+  {
+    title: 'Free Boba Tea',
+    start: '2023-04-12T14:00:00',
+    end: '2023-04-12T16:00:00',
+    location: 'Room 0203',
+    description: 'Taro flavor only'
+  },
+  {
+    title: 'Career Fair',
+    start: '2023-04-15T18:00:00',
+    end: '2023-04-15T20:00:00',
+    location: 'Room 0420',
+    description: 'get a job? in this economy?'
+  }
+  // Add more events as needed
+];
+
 function initializeCalendar() {
   $('#calendar').fullCalendar({
-    events: [
-      {
-        title: 'Annual Concrete Eating Event',
-        start: '2023-04-05T10:00:00',
-        end: '2023-04-05T12:00:00',
-        location: 'Room 0101',
-        description: 'Join us in devouring these cinder blocks for a chance to win a $10 Starbucks giftcard!'
-      },
-      {
-        title: 'Free Boba Tea',
-        start: '2023-04-12T14:00:00',
-        end: '2023-04-12T16:00:00',
-        location: 'Room 0203',
-        description: 'Taro flavor only'
-      },
-      {
-        title: 'Career Fair',
-        start: '2023-04-15T18:00:00',
-        end: '2023-04-15T20:00:00',
-        location: 'Room 0420',
-        description: 'get a job? in this economy?'
-      }
-      // Add more events as needed
-    ],
+    events: events,
     header: {
       left: 'prev,next today',
       center: 'title',
@@ -118,6 +122,28 @@ function initializeCalendar() {
     },
   });
 }
+/* display upcoming events (within next month) */
+function displayUpcomingEvents(events) {
+  const today = new Date();
+  const nextMonth = new Date(today);
+  nextMonth.setMonth(nextMonth.getMonth() + 1);
+
+  const upcomingEvents = events.filter(event => {
+    const eventDate = new Date(event.date);
+    return eventDate >= today && eventDate <= nextMonth;
+  });
+
+  const list = document.createElement('ul');
+  upcomingEvents.forEach(event => {
+    const listItem = document.createElement('li');
+    listItem.textContent = `${event.title} - ${event.date}`;
+    list.appendChild(listItem);
+  });
+
+  document.getElementById('upcoming-events').appendChild(list);
+}
+
+
 
 /* Close event bubble for event calendar */
 function closeEventBubble() {

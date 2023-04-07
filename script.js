@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   
     // Set the first tab active by default
-    tabButtons[0].click();
+    tabButtons[1].click();
   
     // Initialize the calendar
     initializeCalendar();
@@ -61,6 +61,13 @@ const events = [
     end: '2023-04-15T20:00:00',
     location: 'Room 0420',
     description: 'get a job? in this economy?'
+  },
+  {
+    title: 'National Cheeseburger Day',
+    start: '2023-05-15T18:00:00',
+    end: '2023-05-15T20:00:00',
+    location: 'The United States',
+    description: 'Religious Holiday'
   }
   // Add more events as needed
 ];

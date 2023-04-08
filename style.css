@@ -1,3 +1,4 @@
+
 html, body {
     font-family: 'Open Sans', sans-serif;
     background: linear-gradient(to bottom, #3c3c3c, #000000) ; /* #9fc5e8 */
@@ -74,8 +75,9 @@ html, body {
     padding: 20px;
     justify-content: space-between; /* Space the buttons evenly --> space-between*/ 
     height: 100%;
-    padding-top: 180px;
+    padding-top: 100px;
     width: 15%;
+    align-items: center;
 }
 .vertical-menu-right {
     display: flex;
@@ -84,9 +86,10 @@ html, body {
     padding: 20px;
     justify-content: space-between; /* Space the buttons evenly --> space-between*/ 
     height: 100%;
-    padding-top: 180px;
+    padding-top: 100px;
     right: 0;
     width: 15%;
+    align-items: center;
 }
 
 .search-bar {
@@ -100,17 +103,22 @@ html, body {
 
 /* Logo & Testudo */
 .testudo {
-    position: absolute;
-    top: 40px;
-    left: 42px;
+    position: relative;
+    display: block;
+    margin-top: auto;
+    left: 25%;
+    bottom: 5%;
+    transform: translateX(-50%);
     width: 150px; 
     height: auto; /* Maintain aspect ratio */
     z-index: 50; 
 }
 .logo {
-    position: absolute;
-    top: 40px;
-    right: 42px; 
+    position: relative;
+    display: block;
+    left: 25%;
+    bottom: 5%;
+    transform: translateX(-50%);
     width: 150px; 
     height: auto; /* Maintain aspect ratio */
     z-index: 50; 

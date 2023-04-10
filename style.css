@@ -221,6 +221,8 @@ html, body {
     font-size: 20px;
 }
 
+
+
 /* --- Campus Map --- */
 #campus-map {
     padding-right: 40px;
@@ -235,6 +237,16 @@ html, body {
     height: 90%;
     padding: 25px;
 
+}
+
+/* --- Information About Campus --- */
+
+#campusInformation p {
+    width: 950px;
+}
+
+#campusInformation a {
+    color: white;
 }
 
 /* --- Event Calendar --- */

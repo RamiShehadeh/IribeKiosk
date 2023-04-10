@@ -161,6 +161,7 @@ html, body {
     position: relative;
     overflow: hidden;
     color: #eee;
+    overflow-y: auto;
 
 }
 

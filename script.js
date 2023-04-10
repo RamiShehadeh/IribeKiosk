@@ -39,16 +39,16 @@ document.addEventListener('DOMContentLoaded', () => {
     homeImage.click();
 
   
-    // Initialize the calendar
-    initializeCalendar();
-    displayUpcomingEvents(events);
-
     // Load the content of each tab from separate HTML files
     $("#alerts").load("tab0.html");
     $("#building-map").load("tab1.html");
     $("#campus-map").load("tab2.html");
     $("#campus-info").load("tab3.html");
-    //$("#event-calendar").load("tab4.html");
+    $("#event-calendar").load("tab4.html", function() {
+       // Initialize the calendar
+      initializeCalendar();
+      displayUpcomingEvents(events);
+    });
     $("#faq").load("tab5.html");
     $("#home").load("home.html");
     // Load additional tab content as needed
@@ -154,14 +154,14 @@ function displayUpcomingEvents(events) {
   nextMonth.setMonth(nextMonth.getMonth() + 1);
 
   const upcomingEvents = events.filter(event => {
-    const eventDate = new Date(event.date);
+    const eventDate = new Date(event.start);
     return eventDate >= today && eventDate <= nextMonth;
   });
 
   const list = document.createElement('ul');
   upcomingEvents.forEach(event => {
     const listItem = document.createElement('li');
-    listItem.textContent = `${event.title} - ${event.date}`;
+    listItem.textContent = `${event.title} - ${event.start}`;
     list.appendChild(listItem);
   });
 

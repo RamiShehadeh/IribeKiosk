@@ -1,2 +1,220 @@
-<h1 style="text-align: center;">Building Map</h1>
+<head>
 
+</head>
+<body>
+    <h1 style="text-align: center;">Building Map</h1>
+
+        <style>
+
+/* Style the tab */
+/*OVERLAYS*/
+.img-overlay-wrap {
+  position: relative;
+  width: 1300px;
+  height: 750px;
+  display: inline-block; /* <= shrinks container to image size */
+  transition: transform 150ms ease-in-out;
+}
+
+.img-overlay-wrap svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#elevator_overlay {
+    position: absolute;
+    top: 10px;
+    left:1000px;
+    border: 2px solid black;
+}
+
+
+/* Style the buttons that are used to open the tab content */
+.taba button {
+    background-color: #FB3640; /* cccccc */
+    border-radius: 6px;
+    border: ridge;
+    border-color: black;
+    color: #fffcfc;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 10px; /* 10px */
+    width: 100%;
+    height: 30%; /* 16.67% */
+    cursor: pointer;
+}
+
+/* Change background color of buttons on hover */
+.taba button:hover {
+    background-color: #c75d5d;
+
+}
+
+/* Create an active/current tablink class */
+.taba button.active {
+    background-color: #aa0a0a;
+}
+
+/* Style the tab content */
+
+</style>
+<div>
+    <div class="taba">
+        <table>
+            <tr>
+                <th></th>
+                <th><button class="tablinks" onclick="openMap(event, 'FB0')">B0</button></th>
+                <th><button class="tablinks" onclick="openMap(event, 'F0')" id = "default">0</button></th>
+                <th><button class="tablinks" onclick="openMap(event, 'FM0')">M0</button></th>
+                <th><button class="tablinks" onclick="openMap(event, 'F1')">1</button></th>
+                <th><button class="tablinks" onclick="openMap(event, 'F2')">2</button></th>
+                <th><button class="tablinks" onclick="openMap(event, 'F3')">3</button></th>
+                <th><button class="tablinks" onclick="openMap(event, 'F4')">4</button></th>
+                <th><button class="tablinks" onclick="openMap(event, 'F5')">5</button></th>
+                <th><button class="tablinks" onclick="openMap(event, 'F6')">6</button></th>
+            </tr>
+          </table>
+
+    </div>
+
+    <!-- Tab content -->
+    <div id="FB0" class="tabcontenta">
+        <div class="img-overlay-wrap">
+
+            <img src="assets/basement.png" alt = "mapfb0" usemap= "#mapfb0">
+        </div>
+
+    </div>
+    <div id="F0" class="tabcontenta">
+        <div class="img-overlay-wrap">
+
+            <img src="assets/ground0.png"   alt = "mapf0" usemap = "#mapf0">
+            <map name="mapf0">
+                <area shape=poly coords = "206,525 ,285,585, 221,682,154,581" onclick="openDirections('f0110')" >
+            </map>
+            <svg height = "750" width = "1300" id = "f0110" class = "directions">
+                <polyline points="481,509 427,488 345,577 227,494 196,530" style="fill:none;stroke:#aa0a0a;stroke-width:3"/>
+            </svg>
+          
+        </div>
+
+
+    </div>
+    <div id="FM0" class="tabcontenta">
+        <div class="img-overlay-wrap">
+
+            <img src="assets/1.png" alt = "mapfm0" usemap= "#mapfm0">
+        </div>
+
+    </div>
+    <div id="F1" class="tabcontenta">
+        <div class="img-overlay-wrap">
+
+            <img src="assets/first.png" alt = "mapf1" usemap= "#mapf1">
+            <img src="assets/elevator.png" id = "elevator_overlay">
+
+            <map name="mapf1">
+                <area shape=poly coords = "689,547 ,809,562, 795,654,674,651" onclick="openDirections('d1207')" >
+            </map>
+            <svg height = "750" width = "1300" id = "d1207" class = "directions">
+                <polyline points="646,596 660,598 653,663 789,667 793,633" style="fill:none;stroke:#aa0a0a;stroke-width:3;"/>
+            </svg>
+        </div>
+        
+
+
+    </div>
+    <div id="F2" class="tabcontenta">
+        <div class="img-overlay-wrap">
+            <img src="assets/second.png" alt = "mapf2" usemap= "#mapf2">
+        </div>
+
+
+    </div>
+    <div id="F3" class="tabcontenta">
+        <div class="img-overlay-wrap">
+
+            <img src="assets/third.png" alt = "mapf3" usemap= "#mapf3">
+        </div>
+
+
+    </div>
+    <div id="F4" class="tabcontenta">
+        <div class="img-overlay-wrap">
+
+            <img src="assets/fourth.png" alt = "mapf4" usemap= "#mapf4">
+        </div>
+
+
+    </div>
+    <div id="F5" class="tabcontenta">
+        <div class="img-overlay-wrap">
+
+            <img src="assets/fifth.png" alt = "mapf5" usemap= "#mapf5">
+        </div>
+
+    </div>
+    <div id="F6" class="tabcontenta">
+        <div class="img-overlay-wrap">
+            <img src="assets/sixth.png" alt = "mapf6" usemap= "#mapf6">
+        </div>
+
+    </div>
+</div>
+<script>
+    directionList = document.getElementsByClassName("directions");
+
+
+    document.getElementById("default").click();
+        
+        for (i=0; i < directionList.length; i++){
+            directionList[i].style.display = "none";
+    }
+
+    function openDirections(directionName){
+
+
+        for (i=0; i < directionList.length; i++){
+            directionList[i].style.display = "none";
+        }
+        document.getElementById(directionName).style.display = "block";
+        
+        if (directionName.charAt(0) != 'f') {
+            document.getElementById("elevator_overlay").style.display = "block";
+        }
+    }
+
+    function openMap(evt, mapName) {
+        document.getElementById("elevator_overlay").style.display = "none";
+
+        for (i=0; i < directionList.length; i++){
+            directionList[i].style.display = "none";
+        }
+        // Declare all variables
+        var i, tabcontent, tablinks;
+
+        // Get all elements with class="tabcontent" and hide them
+        tabcontent = document.getElementsByClassName("tabcontenta");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+
+        // Get all elements with class="tablinks" and remove the class "active"
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        // Show the current tab, and add an "active" class to the button that opened the tab
+        document.getElementById(mapName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+
+    
+
+</script>
+</body>

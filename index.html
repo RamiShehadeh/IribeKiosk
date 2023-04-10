@@ -14,16 +14,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <!-- Include Calendar -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
-
-    <!-- Include HEREMAPS -->
-    <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js"
-    type="text/javascript" charset="utf-8"></script>
-    <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"
-    type="text/javascript" charset="utf-8"></script>
-    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     <!-- Include BING maps -->
     <script type='text/javascript' src='http://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=AsS2WJiFEXQ7qijqiPhUD60JIW9Uj4HW2Y_q6Ua9jHGziDoy4_WS0OFfBrELlsFo' async defer></script>
-   
+    <!-- Kiosk Screen Button sound -->
+    <audio id="button-click-sound" src="button.wav" preload="auto"></audio>
+    <!-- Include Weather API -->
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+
 
 
 </head>
@@ -49,7 +46,7 @@
             <div class="tab" id="campus-info"></div>
             <div class="tab" id="event-calendar"></div>
             <div class="tab" id="faq"></div>
-            <div class="tab" id="home"></div>
+            <!-- <div class="tab" id="home"></div> -->
         </div>
         <nav class="vertical-menu-right">
             <img src="umd_logo.png" alt="UMD" class="logo" />
@@ -59,6 +56,7 @@
         </nav>
     </div>
     <script src="script.js"></script>
+    <script src="weather.js"></script>
 
 </body>
 </html>

@@ -6,20 +6,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Add a click event listener to the image element and buttons
     homeImage.addEventListener('click', function() {
-      
+      // play sound
+      playButtonClickSound();
       const target = homeImage.getAttribute('data-target');
-  
-        // Deactivate all buttons and tabs
-        tabButtons.forEach(btn => btn.classList.remove('active'));
-        tabs.forEach(tab => tab.classList.remove('active'));
-  
-        // Activate the clicked button and its corresponding tab
-        homeImage.classList.add('active');
-        document.getElementById(target).classList.add('active');
-      });
+
+      // Deactivate all buttons and tabs
+      tabButtons.forEach(btn => btn.classList.remove('active'));
+      tabs.forEach(tab => tab.classList.remove('active'));
+
+      // Activate the clicked button and its corresponding tab
+      homeImage.classList.add('active');
+      document.getElementById(target).classList.add('active');
+    });
   
     tabButtons.forEach(button => {
       button.addEventListener('click', () => {
+        // play sound
+        playButtonClickSound();
         const target = button.getAttribute('data-target');
   
         // Deactivate all buttons and tabs
@@ -56,6 +59,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 });
+
+// Play sound when button pressed
+function playButtonClickSound() {
+  const sound = document.getElementById('button-click-sound');
+  sound.currentTime = 0;
+  sound.play();
+}
 
 function initializeCalendar(events) {
   $('#calendar').fullCalendar({

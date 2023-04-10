@@ -1,36 +1,19 @@
-async function fetchWeather() {
-    const apiKey = 'f813af299d2f15042199aaf34029ed6c';
-    const city = 'College Park'; // Replace with your desired city
-    const units = 'imperial'; // 'metric' for Celsius, 'imperial' for Fahrenheit
+ // Replace with your API key
+ const weatherApiKey = '39ea414a0d39495fa2d41341231004';
 
-    try {
-        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`);
-        const data = await response.json();
+ // Define the location for which you want to fetch the weather data
+ const city = 'College Park';
+ const region = 'Maryland';
+ const country = 'USA';
 
-        if (data.cod === 200) {
-            displayWeatherData(data);
-        } else {
-            console.error('Error fetching weather data:', data.message);
-        }
-    } catch (error) {
-        console.error('Error fetching weather data:', error);
-    }
-}
+ // Fetch and display the weather data
+ function fetchWeather() {
+     $.getJSON(`https://api.weatherapi.com/v1/current.json?key=${weatherApiKey}&q=${city},${region},${country}`, function (data) {
+         $('#location').text(`${data.location.name}, ${data.location.region}`);
+         $('#temperature').text(`${Math.round(data.current.temp_f)}°F (${Math.round(data.current.temp_c)}°C)`);
+         $('#condition').text(`${data.current.condition.text}`);
+         $('#weather-icon').attr('src', `https:${data.current.condition.icon}`);
+     });
+ }
 
-function displayWeatherData(data) {
-    const weatherDataElement = document.getElementById('weather-data');
-
-    const temp = data.main.temp;
-    const description = data.weather[0].description;
-    const icon = data.weather[0].icon;
-    const cityName = data.name;
-
-    weatherDataElement.innerHTML = `
-        <h2>${cityName}</h2>
-        <img src="http://openweathermap.org/img/wn/${icon}.png" alt="${description}" />
-        <p>${temp}°F</p>
-        <p>${description}</p>
-    `;
-}
-
-document.addEventListener('DOMContentLoaded', fetchWeather);
+ fetchWeather();

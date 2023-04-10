@@ -75,7 +75,7 @@ html, body {
     padding: 20px;
     justify-content: space-between; /* Space the buttons evenly --> space-between*/ 
     height: 100%;
-    padding-top: 100px;
+    padding-top: 60px;
     width: 15%;
     align-items: center;
 }
@@ -86,7 +86,7 @@ html, body {
     padding: 20px;
     justify-content: space-between; /* Space the buttons evenly --> space-between*/ 
     height: 100%;
-    padding-top: 100px;
+    padding-top: 60px;
     right: 0;
     width: 15%;
     align-items: center;
@@ -103,25 +103,18 @@ html, body {
 
 /* Logo & Testudo */
 .testudo {
-    position: relative;
-    display: block;
-    margin-top: auto;
-    left: 25%;
-    bottom: 5%;
-    transform: translateX(-50%);
     width: 150px; 
     height: auto; /* Maintain aspect ratio */
+    margin-bottom: 5%;
+    align-self: center;
     z-index: 50; 
 }
 .logo {
-    position: relative;
-    display: block;
-    left: 25%;
-    bottom: 5%;
-    transform: translateX(-50%);
     width: 150px; 
     height: auto; /* Maintain aspect ratio */
     z-index: 50; 
+    margin-bottom: 5%;
+    align-self: center;
 }
 
 
@@ -252,7 +245,7 @@ html, body {
 
 /* --- Event Calendar --- */
 #calendar {
-    background-color: #D3AF37;
+    background-color: #171717; /*#D3AF37 */
     border: 1px solid black; 
     width: 95%;
     margin-top: 10px;
@@ -264,7 +257,7 @@ html, body {
     margin-top: 10px;
 }
 .fc-today {
-    background-color: #ba951e !important;
+    background-color: #D3AF37 !important;
   }
 .event-bubble {
     position: absolute;

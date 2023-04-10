@@ -1,0 +1,60 @@
+[
+    {
+      "title": "YOU ARE HERE",
+      "subTitle": "Brendan Iribe Center",
+      "latitude": 38.989064,
+      "longitude": -76.936083,
+      "text": "0",
+      "color": "red"
+    },
+    {
+      "title": "College Park Metro Station",
+      "subTitle": "Access to Green/Yellow lines",
+      "latitude": 38.978432,
+      "longitude": -76.928295,
+      "text": "M",
+      "color": "blue"
+    },
+    {
+        "title": "Mckeldin Library",
+        "subTitle": "Library",
+        "latitude": 38.985949,
+        "longitude": -76.945094,
+        "text": "L",
+        "color": "green"
+    },
+    {
+        "title": "Hornbake Library",
+        "subTitle": "Library",
+        "latitude": 38.988201,
+        "longitude": -76.941549,
+        "text": "L",
+        "color": "green"
+    },
+    {
+        "title": "South Campus Dining Hall",
+        "subTitle": "Dining Hall",
+        "latitude": 38.983061,
+        "longitude": -76.943681,
+        "text": "D",
+        "color": "orange"
+    },
+    {
+        "title": "Yahentamitsi Dining Hall",
+        "subTitle": "Dining Hall",
+        "latitude": 38.990982,
+        "longitude": -76.944733,
+        "text": "D",
+        "color": "orange"
+    },
+    {
+        "title": "251 North Dining Hall",
+        "subTitle": "Dining Hall",
+        "latitude": 38.992674,
+        "longitude": -76.949724,
+        "text": "D",
+        "color": "orange"
+    }
+      
+  ]
+  

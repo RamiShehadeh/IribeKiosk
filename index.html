@@ -36,7 +36,7 @@
         </div>
         
         <nav class="vertical-menu-left">
-            <img src="testudo.png" alt="Testudo" class="testudo" id = "testudo" data-target="home"/>
+            <img src="testudo.png" alt="Testudo" class="testudo" id = "testudo" data-target="home" onclick="this.classList.toggle('active')" />
             <button class="tab-button" data-target="building-map" onclick="this.classList.toggle('active')">Building Map</button>
             <button class="tab-button" data-target="campus-map" onclick="this.classList.toggle('active')">Campus Map</button>
             <button class="tab-button" data-target="campus-info" onclick="this.classList.toggle('active')">Information about Iribe</button>
@@ -48,6 +48,8 @@
             <div class="tab" id="campus-map"></div>
             <div class="tab" id="campus-info"></div>
             <div class="tab" id="event-calendar"></div>
+            <div class="tab" id="faq"></div>
+            <div class="tab" id="home"></div>
         </div>
         <nav class="vertical-menu-right">
             <img src="umd_logo.png" alt="UMD" class="logo" />

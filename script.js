@@ -44,9 +44,10 @@ document.addEventListener('DOMContentLoaded', () => {
     $("#building-map").load("tab1.html");
     $("#campus-map").load("tab2.html");
     $("#campus-info").load("tab3.html");
-    $("#event-calendar").load("tab4.html", function() {
-       // Initialize the calendar
-      initializeCalendar();
+    $("#event-calendar").load("tab4.html", async function() {
+      // Initialize the calendar
+      const events = await fetchEvents();
+      initializeCalendar(events);
       displayUpcomingEvents(events);
     });
     $("#faq").load("tab5.html");
@@ -54,43 +55,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Load additional tab content as needed
 
 
-    
 });
 
-/* initialize event calendar */
-const events = [
-  {
-    title: 'Annual Concrete Eating Event',
-    start: '2023-04-05T10:00:00',
-    end: '2023-04-05T12:00:00',
-    location: 'Room 0101',
-    description: 'Join us in devouring these cinder blocks for a chance to win a $10 Starbucks giftcard!'
-  },
-  {
-    title: 'Free Boba Tea',
-    start: '2023-04-12T14:00:00',
-    end: '2023-04-12T16:00:00',
-    location: 'Room 0203',
-    description: 'Taro flavor only'
-  },
-  {
-    title: 'Career Fair',
-    start: '2023-04-15T18:00:00',
-    end: '2023-04-15T20:00:00',
-    location: 'Room 0420',
-    description: 'get a job? in this economy?'
-  },
-  {
-    title: 'National Cheeseburger Day',
-    start: '2023-05-15T18:00:00',
-    end: '2023-05-15T20:00:00',
-    location: 'The United States',
-    description: 'Religious Holiday'
-  }
-  // Add more events as needed
-];
-
-function initializeCalendar() {
+function initializeCalendar(events) {
   $('#calendar').fullCalendar({
     events: events,
     header: {
@@ -147,7 +114,7 @@ function initializeCalendar() {
     },
   });
 }
-/* display upcoming events (within next month) */
+/* display upcoming events (events within next month) */
 function displayUpcomingEvents(events) {
   const today = new Date();
   const nextMonth = new Date(today);
@@ -160,8 +127,10 @@ function displayUpcomingEvents(events) {
 
   const list = document.createElement('ul');
   upcomingEvents.forEach(event => {
+    const eventDate = new Date(event.start);
+    const formattedDate = eventDate.toLocaleDateString();
     const listItem = document.createElement('li');
-    listItem.textContent = `${event.title} - ${event.start}`;
+    listItem.textContent = `${event.title} - ${formattedDate}`;
     list.appendChild(listItem);
   });
 
@@ -176,6 +145,19 @@ function closeEventBubble() {
   if (eventBubble) {
     eventBubble.remove();
   }
+}
+
+// fetch events from JSON file 'events.JSON'
+function fetchEvents() {
+  return fetch('events.json')
+    .then(response => response.json())
+    .then(events => {
+      return events;
+    })
+    .catch(error => {
+      console.error('Error fetching events:', error);
+      return [];
+    });
 }
 
 // Load the content of the alert/notification bar from tab0.html

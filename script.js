@@ -2,22 +2,22 @@
 document.addEventListener('DOMContentLoaded', () => {
     const tabButtons = document.querySelectorAll('.tab-button');
     const tabs = document.querySelectorAll('.tab');
-    const homeImage = document.getElementById('testudo');
+    // const homeImage = document.getElementById('testudo');
 
-    // Add a click event listener to the image element and buttons
-    homeImage.addEventListener('click', function() {
-      // play sound
-      playButtonClickSound();
-      const target = homeImage.getAttribute('data-target');
+    // // Add a click event listener to the image element and buttons
+    // homeImage.addEventListener('click', function() {
+    //   // play sound
+    //   playButtonClickSound();
+    //   const target = homeImage.getAttribute('data-target');
 
-      // Deactivate all buttons and tabs
-      tabButtons.forEach(btn => btn.classList.remove('active'));
-      tabs.forEach(tab => tab.classList.remove('active'));
+    //   // Deactivate all buttons and tabs
+    //   tabButtons.forEach(btn => btn.classList.remove('active'));
+    //   tabs.forEach(tab => tab.classList.remove('active'));
 
-      // Activate the clicked button and its corresponding tab
-      homeImage.classList.add('active');
-      document.getElementById(target).classList.add('active');
-    });
+    //   // Activate the clicked button and its corresponding tab
+    //   homeImage.classList.add('active');
+    //   document.getElementById(target).classList.add('active');
+    // });
   
     tabButtons.forEach(button => {
       button.addEventListener('click', () => {
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const target = button.getAttribute('data-target');
   
         // Deactivate all buttons and tabs
-        homeImage.classList.remove('active');
+        // homeImage.classList.remove('active');
         tabButtons.forEach(btn => btn.classList.remove('active'));
         tabs.forEach(tab => tab.classList.remove('active'));
   
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
       displayUpcomingEvents(events);
     });
     $("#faq").load("tab5.html");
-    $("#home").load("home.html");
+    // $("#home").load("home.html");
     // Load additional tab content as needed
 
 });

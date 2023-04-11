@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Set the home active by default
     //tabButtons[5].click();
 
-    homeImage.click();
+    tabButtons[3].click();
 
   
     // Load the content of each tab from separate HTML files

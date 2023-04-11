@@ -35,11 +35,19 @@
     </div>
 
     <div class="column">
-        <h2>Accessability Features</h2>
+        <h2>Accessibility Features</h2>
         <h5>
             <button class="material-icons">waving_hand</button> Alert for Assistance <br><br>
             <button class="material-icons">zoom_in</button> Zoom In <br><br>
-            <button class="material-icons">zoom_out</button> Zoom Out
-        </h5>
+            <button class="material-icons">zoom_out</button> Zoom  <br><br>
+            <button id="color-blind-toggle" class="material-icons">exposure</button> Color Blind Mode
+
+            <script>
+              const button = document.getElementById('color-blind-toggle');
+              button.addEventListener('click', function() {
+                document.body.classList.toggle('color-blind');
+                button.classList.toggle('active');
+              });
+            </script>        </h5>
     </div>
 </div>

@@ -57,7 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
     $("#home").load("home.html");
     // Load additional tab content as needed
 
-
 });
 
 // Play sound when button pressed

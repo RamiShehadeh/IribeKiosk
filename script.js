@@ -43,19 +43,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   
     // Load the content of each tab from separate HTML files
-    $("#alerts").load("tab0.html");
-    $("#building-map").load("tab1.html");
-    $("#campus-map").load("tab2.html");
-    $("#campus-info").load("tab3.html");
-    $("#event-calendar").load("tab4.html", async function() {
-      // Initialize the calendar
+    // Load the content of each tab from templates
+
+    // Initialize the calendar
+    (async function() {
       const events = await fetchEvents();
       initializeCalendar(events);
       displayUpcomingEvents(events);
-    });
-    $("#faq").load("tab5.html");
-    // $("#home").load("home.html");
-    // Load additional tab content as needed
+  })();
+
+  // Load the content of the alert/notification bar from tab0.html
+  document.querySelector(".alerts-container").innerHTML = document.querySelector("#tab0-template .alert, #tab0-template .notification").innerHTML;
 
 });
 
@@ -66,16 +64,79 @@ function playButtonClickSound() {
   sound.play();
 }
 
+// function initializeCalendar(events) {
+//   $('#calendar').fullCalendar({
+//     events: events,
+//     header: {
+//       left: 'prev,next today',
+//       center: 'title',
+//       right: 'month,agendaWeek,agendaDay'
+//     },
+//     defaultView: 'month',
+//     eventClick: function (calEvent, jsEvent, view) {
+//       closeEventBubble();
+
+//       const bubble = document.createElement('div');
+//       bubble.classList.add('event-bubble');
+//       bubble.innerHTML = `
+//           <div class="event-bubble-header">
+//               <h3>${calEvent.title}</h3>
+//               <button class="event-bubble-close">&times;</button>
+//           </div>
+//           <p> ${calEvent.description} </p>
+//           <p>Location: ${calEvent.location} </p>
+//           <p>Start: ${calEvent.start.format('MMMM Do YYYY, h:mm a')}</p>
+//           <p>End: ${calEvent.end.format('MMMM Do YYYY, h:mm a')}</p>
+//       `;
+//       document.body.appendChild(bubble);
+
+//       // Calculate the position of the event bubble
+//       var bubbleWidth = bubble.offsetWidth;
+//       var bubbleHeight = bubble.offsetHeight;
+
+//       var windowWidth = window.innerWidth;
+//       var windowHeight = window.innerHeight;
+
+//       var clickX = jsEvent.pageX;
+//       var clickY = jsEvent.pageY;
+
+//       var posX = clickX + 20;
+//       var posY = clickY - 10;
+
+//       // Check if the bubble goes out of bounds horizontally
+//       if (posX + bubbleWidth > windowWidth) {
+//           posX = clickX - bubbleWidth - 20;
+//       }
+
+//       // Check if the bubble goes out of bounds vertically
+//       if (posY + bubbleHeight > windowHeight) {
+//           posY = clickY - bubbleHeight - 20;
+//       }
+
+//       bubble.style.left = posX + 'px';
+//       bubble.style.top = posY + 'px';
+
+//       const closeButton = bubble.querySelector('.event-bubble-close');
+//       closeButton.addEventListener('click', closeEventBubble);
+//     },
+//   });
+// }
+
 function initializeCalendar(events) {
-  $('#calendar').fullCalendar({
+  const calendarEl = document.getElementById('calendar');
+  const calendar = new FullCalendar.Calendar(calendarEl, {
+    plugins: ['interaction', 'dayGrid', 'timeGrid'],
     events: events,
     header: {
       left: 'prev,next today',
       center: 'title',
-      right: 'month,agendaWeek,agendaDay'
+      right: 'dayGridMonth,timeGridWeek,timeGridDay'
     },
-    defaultView: 'month',
-    eventClick: function (calEvent, jsEvent, view) {
+    defaultView: 'dayGridMonth',
+    eventClick: function (info) {
+      const calEvent = info.event;
+      const jsEvent = info.jsEvent;
+
       closeEventBubble();
 
       const bubble = document.createElement('div');
@@ -85,10 +146,10 @@ function initializeCalendar(events) {
               <h3>${calEvent.title}</h3>
               <button class="event-bubble-close">&times;</button>
           </div>
-          <p> ${calEvent.description} </p>
-          <p>Location: ${calEvent.location} </p>
-          <p>Start: ${calEvent.start.format('MMMM Do YYYY, h:mm a')}</p>
-          <p>End: ${calEvent.end.format('MMMM Do YYYY, h:mm a')}</p>
+          <p> ${calEvent.extendedProps.description} </p>
+          <p>Location: ${calEvent.extendedProps.location} </p>
+          <p>Start: ${calEvent.start.toLocaleString()}</p>
+          <p>End: ${calEvent.end.toLocaleString()}</p>
       `;
       document.body.appendChild(bubble);
 
@@ -107,12 +168,12 @@ function initializeCalendar(events) {
 
       // Check if the bubble goes out of bounds horizontally
       if (posX + bubbleWidth > windowWidth) {
-          posX = clickX - bubbleWidth - 20;
+        posX = clickX - bubbleWidth - 20;
       }
 
       // Check if the bubble goes out of bounds vertically
       if (posY + bubbleHeight > windowHeight) {
-          posY = clickY - bubbleHeight - 20;
+        posY = clickY - bubbleHeight - 20;
       }
 
       bubble.style.left = posX + 'px';
@@ -120,9 +181,12 @@ function initializeCalendar(events) {
 
       const closeButton = bubble.querySelector('.event-bubble-close');
       closeButton.addEventListener('click', closeEventBubble);
-    },
+    }
   });
+  calendar.render();
 }
+
+
 /* display upcoming events (events within next month) */
 function displayUpcomingEvents(events) {
   const today = new Date();

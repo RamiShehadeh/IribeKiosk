@@ -38,22 +38,28 @@ document.addEventListener('DOMContentLoaded', () => {
   
     // Set the home active by default
     //tabButtons[5].click();
-
     tabButtons[3].click();
-
-  
-    // Load the content of each tab from separate HTML files
-    $("#alerts").load("tab0.html");
-    $("#building-map").load("tab1.html");
-    $("#campus-map").load("tab2.html");
-    $("#campus-info").load("tab3.html");
-    $("#event-calendar").load("tab4.html", async function() {
+    
+    async function getcalevents() {
       // Initialize the calendar
       const events = await fetchEvents();
       initializeCalendar(events);
       displayUpcomingEvents(events);
-    });
-    $("#faq").load("tab5.html");
+    }
+    getcalevents();
+  
+    // Load the content of each tab from separate HTML files
+    // $("#alerts").load("tab0.html");
+    // $("#building-map").load("tab1.html");
+    // $("#campus-map").load("tab2.html");
+    // $("#campus-info").load("tab3.html");
+    // $("#event-calendar").load("tab4.html", async function() {
+    //   // Initialize the calendar
+    //   const events = await fetchEvents();
+    //   initializeCalendar(events);
+    //   displayUpcomingEvents(events);
+    // });
+    // $("#faq").load("tab5.html");
     // $("#home").load("home.html");
     // Load additional tab content as needed
 

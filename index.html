@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="fontawesome/css/all.min.css"> 
     <!-- Include Calendar CSS -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" /> -->
-    <script src="jquery-3.6.4.min.js"></script>
+    <script src="data/jquery-3.6.4.min.js"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script> -->
     <!-- Include Calendar -->
     <script src="fullcalendar-6.1.5/packages/core/index.global.min.js"></script>
@@ -21,7 +21,7 @@
     <!-- Include BING maps -->
     <!-- <script type='text/javascript' src='http://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=AsS2WJiFEXQ7qijqiPhUD60JIW9Uj4HW2Y_q6Ua9jHGziDoy4_WS0OFfBrELlsFo' async defer></script> -->
     <!-- Kiosk Screen Button sound -->
-    <audio id="button-click-sound" src="button.wav" preload="auto"></audio>
+    <audio id="button-click-sound" src="data/button.wav" preload="auto"></audio>
     <!-- Include Weather API -->
     <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
 
@@ -48,7 +48,7 @@
         </div>
         
         <nav class="vertical-menu-left">
-            <img src="testudo.png" alt="Testudo" class="testudo" id = "testudo" />
+            <img src="data/testudo.png" alt="Testudo" class="testudo" id = "testudo" />
             <button class="tab-button" data-target="building-map" onclick="this.classList.toggle('active')">Building Map</button>
             <button class="tab-button" data-target="campus-map" onclick="this.classList.toggle('active')">Campus Map</button>
             <button class="tab-button" data-target="campus-info" onclick="this.classList.toggle('active')">Information about Iribe</button>
@@ -85,7 +85,7 @@
                     </div> 
                     
                 </div> -->
-                <img src="weather.png" alt = "current weather">
+                <img src="data/weather.png" alt = "current weather">
                 <!-- Add more notifications as needed --> 
             </div>
             <div class="tab" id="building-map">
@@ -101,8 +101,8 @@
                 /*OVERLAYS*/
                 .img-overlay-wrap {
                   position: relative;
-                  width: 1300px;
-                  height: 750px;
+                  width: 1300px; 
+                  height: 750px; 
                   display: inline-block; /* <= shrinks container to image size */
                   transition: transform 150ms ease-in-out;
                 }
@@ -182,7 +182,7 @@
                     <div id="F0" class="tabcontenta">
                         <div class="img-overlay-wrap">
                 
-                            <img src="assets/ground0.png"   alt = "mapf0" usemap = "#mapf0">
+                            <img src="assets/ground0.png"   alt = "mapf0" usemap = "#mapf0" >
                             <map name="mapf0">
                                 <area shape=poly coords = "206,525 ,285,585, 221,682,154,581" onclick="openDirections('f0110')" >
                             </map>
@@ -312,7 +312,7 @@
                 
             </div>
             <div class="tab" id="campus-map">
-               <img src="campus_map.png" alt = "campus map" style="width: 98%;">
+               <img src="data/campus_map.png" alt = "campus map" style="width: 98%;" class="zoomable" >
             </div>
             <div class="tab" id="campus-info">
                 <h1 style="text-align: center;"> Campus Information </h1>
@@ -362,7 +362,7 @@
             <div class="tab" id="event-calendar">
                 <!-- Content of tab4.html goes here -->
                 <h1 style="text-align: center;"> Event Calendar </h1>
-                <div id="calendar"><img src="calendar.png" alt = "event calendar" style = "width: 95%"></div> 
+                <div id="calendar"><img src="data/calendar.png" alt = "event calendar" style = "width: 95%"></div> 
                 <div id="upcoming-events"><h2>Upcoming Events:</h2>
                 <ul> <li>National Cheeseburger Day: 05/15/2023</li></ul> </div>
             </div>
@@ -389,7 +389,7 @@
                         font-weight: 400;
                         src: local('Material Icons'),
                             local('MaterialIcons-Regular'),
-                            url('MaterialIcons-Regular.ttf') format('truetype');
+                            url('data/MaterialIcons-Regular.ttf') format('truetype');
                     }
 
                     .material-icons {
@@ -444,7 +444,7 @@
             <!-- <div class="tab" id="home"></div> -->
         </div>
         <nav class="vertical-menu-right">
-            <img src="umd_logo.png" alt="UMD" class="logo" />
+            <img src="data/umd_logo.png" alt="UMD" class="logo" />
             <button class="tab-button" data-target="alerts" onclick="this.classList.toggle('active')">Alerts</button>
             <button class="tab-button" data-target="event-calendar" onclick="this.classList.toggle('active')">Event Calendar</button>
             <button class="tab-button" data-target="faq" onclick="this.classList.toggle('active')">Help</button>

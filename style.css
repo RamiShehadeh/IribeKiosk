@@ -329,3 +329,13 @@ html, body {
 h3 {
     margin-bottom: 20px;
 }
+/* .zoomable {
+    transition: transform 0.5s ease;
+    overflow: hidden;
+  }
+  
+  .zoomable:hover {
+    transform: scale(1.4);
+    transform-origin: center;
+
+  } */

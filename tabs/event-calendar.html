@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Calendar</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    .calendar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .calendar-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+        color:aqua;
+    }
+
+    .calendar-grid {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 1px;
+    }
+
+    .calendar-day {
+        width: 100px;
+        height: 100px;
+        border: 1px solid #ccc;
+        display: block;
+        justify-content: center;
+        align-items: center;
+        color: azure;
+        text-align: left; 
+        padding-left: 3px;
+    }
+
+    .calendar-day:not(.empty) {
+        cursor: pointer;
+    }
+
+    .calendar-day:hover {
+        background-color: #d3af37;
+    }
+
+    .today {
+        background-color: #9c7800;
+    }
+    .calendar-days {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+    }
+
+    .calendar-day-name {
+        width: 100px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        color:azure;
+    }
+    .event-details {
+        position: absolute;
+        background-color: white;
+        border: 1px solid #ccc;
+        padding: 0.5rem;
+        width: 200px;
+        display: none;
+        z-index: 1000;
+    }
+
+    .calendar-event-title {
+        font-size: 0.8rem;
+        color: rgb(44, 202, 242);
+        display: block;
+        margin-top: 0.2rem;
+        margin-left: 0.2rem;
+        font-weight: bold;
+    }
+
+    .event-details-close {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 26px;
+    }
+    #arrow {
+        color:#f5f5f5;
+        background-color: #d3af37;
+        cursor: pointer;
+        transform: scale(1.5);
+        padding: 10px;
+        margin: 10px;
+        font-weight: bold;
+    }
+    #upcoming-events {
+        color:#f5f5f5;
+    }
+
+
+  </style>
+</head>
+<body>
+  <h1 style="text-align: center; color:#f5f5f5"> Event Calendar </h1>
+  <div id="calendar"></div>
+  <div id="upcoming-events"><h2>Upcoming Events:</h2>
+    <ul> <li>Cheeseburger Event: 04/28/2023</li>
+         <li>VR Therapy Session: 04/30/2023</li>
+         <li>Free Boba: 05/05/2023</li>
+    </ul> </div>
+  <script>
+
+    const events = {
+        '2023-04-28': { title: 'Cheeseburger Event', description: 'Come devour these cheeseburgers for a chance to win free tuition for the next semester', startingtime: '10:00 AM - 11:30 AM ', location: 'IRB2101'  },
+        '2023-05-05': { title: 'Free Boba', description: 'Taro flavor only ( ˘︹˘ )', startingtime: '09:00 AM - 11:00 AM', location: 'IRB4202'  },
+        '2023-04-30': { title: 'VR Therapy Session', description: 'Vent your anxiety issues to a talking penguin in VR!', startingtime: '2:00 PM - 4:00 PM', location: 'IRB1212'  },
+        // Add more events as needed
+    };
+
+    function pad(n) {
+        return n < 10 ? '0' + n : n;
+    }
+
+    function generateCalendar(year, month) {
+        const currentDate = new Date();
+        const currentYear = currentDate.getFullYear();
+        const currentMonth = currentDate.getMonth();
+        const currentDay = currentDate.getDate();
+
+        const firstDay = new Date(year, month, 1);
+        const lastDay = new Date(year, month + 1, 0);
+
+        // initialize calendar
+        let calendarHtml = `
+            <div class="calendar">
+                <div class="calendar-header">
+                    <button id = "arrow" onclick="generateCalendar(${year}, ${month - 1})">&lt;</button>
+                    <h2>${firstDay.toLocaleString('default', { month: 'long' })} ${year}</h2>
+                    <button id = "arrow" onclick="generateCalendar(${year}, ${month + 1})">&gt;</button>
+                </div>
+                <div class="calendar-days">
+        `;
+
+        // days of week
+        const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+        for (const day of daysOfWeek) {
+            calendarHtml += `<div class="calendar-day-name">${day}</div>`;
+        }
+        calendarHtml += `
+            </div>
+            <div class="calendar-grid">
+                <div class="calendar-day empty"></div>
+        `;
+
+        for (let i = 1; i < firstDay.getDay(); i++) {
+            calendarHtml += `<div class="calendar-day empty"></div>`;
+        }
+
+        for (let day = 1; day <= lastDay.getDate(); day++) {
+            const dateKey = `${year}-${pad(month + 1)}-${pad(day)}`;
+            const event = events[dateKey];
+            const eventTitle = event ? `<div class="calendar-event-title">${event.title}</div>` : '';
+            const isToday =
+                year === currentYear && month === currentMonth && day === currentDay;
+                calendarHtml += `
+                    <div
+                        class="calendar-day${isToday ? ' today' : ''}"
+                        onclick="onDayClick(${year}, ${month}, ${day})"
+                    >
+                        ${day}${eventTitle}
+                    </div>
+                    `;
+        }
+
+        calendarHtml += `
+            </div>
+            <div id="event-details" class="event-details"></div>
+            </div>
+        `;
+
+        document.getElementById('calendar').innerHTML = calendarHtml;
+    }
+
+    function onDayClick(year, month, day, e = window.event) {
+        const dateKey = `${year}-${pad(month + 1)}-${pad(day)}`;
+        const eventData = events[dateKey];
+
+        const eventDetails = document.getElementById('event-details');
+        if (eventData) {
+            eventDetails.innerHTML = `
+            <span class="event-details-close" onclick="closeEventDetails()">&times;</span>
+            <strong>${eventData.title}</strong>
+            <p> Time: ${eventData.startingtime || ''}</p>
+            <p> Location: ${eventData.location || ''}</p>
+            <p>${eventData.description || ''}</p>
+            `;
+
+            const rect = e.target.getBoundingClientRect();
+            eventDetails.style.top = `${rect.top - eventDetails.offsetHeight}px`;
+            eventDetails.style.left = `${rect.left}px`;
+            eventDetails.style.display = 'block';
+        } else {
+            eventDetails.style.display = 'none';
+        }
+    }
+
+
+    // X to close event box
+    function closeEventDetails() {
+    const eventDetails = document.getElementById('event-details');
+    eventDetails.style.display = 'none';
+    }
+
+    const currentDate = new Date();
+    generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
+
+  </script>
+</body>
+</html>
+

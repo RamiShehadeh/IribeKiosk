@@ -1,66 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+
+    /* Style the tab */
+    /*OVERLAYS*/
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        color: #fffcfc;
+    }
+    .img-overlay-wrap {
+      position: relative;
+      width: 1300px;
+      height: 750px;
+      display: inline-block; /* <= shrinks container to image size */
+      transition: transform 150ms ease-in-out;
+    }
+    .img-overlay-wrap img {
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+    }
+
+    
+    .img-overlay-wrap svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      
+    }
+    
+    #elevator_overlay {
+        position: absolute;
+        top: 10px;
+        left:1000px;
+        border: 2px solid black;
+    }
+    
+    
+    /* Style the buttons that are used to open the tab content */
+    .taba button {
+        background-color: #D3AF37; /* cccccc */
+        border-radius: 6px;
+        border: ridge;
+        border-color: black;
+        color: #fffcfc;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        padding: 10px;
+        margin-bottom: 10px; /* 10px */
+        width: 100%;
+        height: 30%; /* 16.67% */
+        cursor: pointer;
+    }
+    
+    /* Change background color of buttons on hover */
+    .taba button:hover {
+        background-color: #d3b44f;
+    
+    }
+    
+    /* Create an active/current tablink class */
+    .taba button.active {
+        background-color: #9c7800;
+    }
+    
+    /* Style the tab content */
+    
+    </style>
+
 
 </head>
 <body>
     <h1 style="text-align: center;">Building Map</h1>
 
-        <style>
 
-/* Style the tab */
-/*OVERLAYS*/
-.img-overlay-wrap {
-  position: relative;
-  width: 1300px;
-  height: 750px;
-  display: inline-block; /* <= shrinks container to image size */
-  transition: transform 150ms ease-in-out;
-}
-
-.img-overlay-wrap svg {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-#elevator_overlay {
-    position: absolute;
-    top: 10px;
-    left:1000px;
-    border: 2px solid black;
-}
-
-
-/* Style the buttons that are used to open the tab content */
-.taba button {
-    background-color: #D3AF37; /* cccccc */
-    border-radius: 6px;
-    border: ridge;
-    border-color: black;
-    color: #fffcfc;
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
-    padding: 10px;
-    margin-bottom: 10px; /* 10px */
-    width: 100%;
-    height: 30%; /* 16.67% */
-    cursor: pointer;
-}
-
-/* Change background color of buttons on hover */
-.taba button:hover {
-    background-color: #d3b44f;
-
-}
-
-/* Create an active/current tablink class */
-.taba button.active {
-    background-color: #9c7800;
-}
-
-/* Style the tab content */
-
-</style>
 <div>
     <div class="taba">
         <table>
@@ -84,14 +102,14 @@
     <div id="FB0" class="tabcontenta">
         <div class="img-overlay-wrap">
 
-            <img src="assets/basement.png" alt = "mapfb0" usemap= "#mapfb0">
+            <img src="../assets/basement.png" alt = "mapfb0" usemap= "#mapfb0">
         </div>
 
     </div>
     <div id="F0" class="tabcontenta">
         <div class="img-overlay-wrap">
 
-            <img src="assets/ground0.png"   alt = "mapf0" usemap = "#mapf0">
+            <img src="../assets/ground0.png"   alt = "mapf0" usemap = "#mapf0">
             <map name="mapf0">
                 <area shape=poly coords = "206,525 ,285,585, 221,682,154,581" onclick="openDirections('f0110')" >
             </map>
@@ -106,15 +124,15 @@
     <div id="FM0" class="tabcontenta">
         <div class="img-overlay-wrap">
 
-            <img src="assets/1.png" alt = "mapfm0" usemap= "#mapfm0">
+            <img src="../assets/1.png" alt = "mapfm0" usemap= "#mapfm0">
         </div>
 
     </div>
     <div id="F1" class="tabcontenta">
         <div class="img-overlay-wrap">
 
-            <img src="assets/first.png" alt = "mapf1" usemap= "#mapf1">
-            <img src="assets/elevator.png" id = "elevator_overlay">
+            <img src="../assets/first.png" alt = "mapf1" usemap= "#mapf1">
+            <img src="../assets/elevator.png" id = "elevator_overlay">
 
             <map name="mapf1">
                 <area shape=poly coords = "689,547 ,809,562, 795,654,674,651" onclick="openDirections('d1207')" >
@@ -129,7 +147,7 @@
     </div>
     <div id="F2" class="tabcontenta">
         <div class="img-overlay-wrap">
-            <img src="assets/second.png" alt = "mapf2" usemap= "#mapf2">
+            <img src="../assets/second.png" alt = "mapf2" usemap= "#mapf2">
         </div>
 
 
@@ -137,7 +155,7 @@
     <div id="F3" class="tabcontenta">
         <div class="img-overlay-wrap">
 
-            <img src="assets/third.png" alt = "mapf3" usemap= "#mapf3">
+            <img src="../assets/third.png" alt = "mapf3" usemap= "#mapf3">
         </div>
 
 
@@ -145,7 +163,7 @@
     <div id="F4" class="tabcontenta">
         <div class="img-overlay-wrap">
 
-            <img src="assets/fourth.png" alt = "mapf4" usemap= "#mapf4">
+            <img src="../assets/fourth.png" alt = "mapf4" usemap= "#mapf4">
         </div>
 
 
@@ -153,13 +171,13 @@
     <div id="F5" class="tabcontenta">
         <div class="img-overlay-wrap">
 
-            <img src="assets/fifth.png" alt = "mapf5" usemap= "#mapf5">
+            <img src="../assets/fifth.png" alt = "mapf5" usemap= "#mapf5">
         </div>
 
     </div>
     <div id="F6" class="tabcontenta">
         <div class="img-overlay-wrap">
-            <img src="assets/sixth.png" alt = "mapf6" usemap= "#mapf6">
+            <img src="../assets/sixth.png" alt = "mapf6" usemap= "#mapf6">
         </div>
 
     </div>

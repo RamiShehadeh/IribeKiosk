@@ -46,11 +46,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Load the content of each tab from templates
 
     // Initialize the calendar
-    (async function() {
-      const events = await fetchEvents();
-      initializeCalendar(events);
-      displayUpcomingEvents(events);
-  })();
+  //   (async function() {
+  //     const events = await fetchEvents();
+  //     initializeCalendar(events);
+  //     displayUpcomingEvents(events);
+  // })();
 
   // Load the content of the alert/notification bar from tab0.html
   document.querySelector(".alerts-container").innerHTML = document.querySelector("#tab0-template .alert, #tab0-template .notification").innerHTML;

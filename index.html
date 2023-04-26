@@ -86,7 +86,6 @@
                     
                 </div> -->
                 <img src="data/weather.png" alt = "current weather">
-                <!-- Add more notifications as needed --> 
             </div>
             <div class="tab" id="building-map">
                 <head>
@@ -103,6 +102,7 @@
                   position: relative;
                   width: 1300px; 
                   height: 750px; 
+                  /* max-width: 120%; */
                   display: inline-block; /* <= shrinks container to image size */
                   transition: transform 150ms ease-in-out;
                 }
@@ -184,7 +184,7 @@
                 
                             <img src="assets/ground0.png"   alt = "mapf0" usemap = "#mapf0" >
                             <map name="mapf0">
-                                <area shape=poly coords = "206,525 ,285,585, 221,682,154,581" onclick="openDirections('f0110')" >
+                                <area shape=poly coords = "206,525 ,285,585, 221,682,154,581" onclick="openDirections('f0110')" style="cursor: pointer;" >
                             </map>
                             <svg height = "750" width = "1300" id = "f0110" class = "directions">
                                 <polyline points="481,509 427,488 345,577 227,494 196,530" style="fill:none;stroke:#aa0a0a;stroke-width:3"/>
@@ -312,7 +312,8 @@
                 
             </div>
             <div class="tab" id="campus-map">
-               <img src="data/campus_map.png" alt = "campus map" style="width: 98%;" class="zoomable" >
+                <h1 style="text-align: center;"> Campus Map </h1>
+               <img src="data/campus_map.png" alt = "campus map" style="width: 95%; height: 92%;" class="zoomable" >
             </div>
             <div class="tab" id="campus-info">
                 <h1 style="text-align: center;"> Campus Information </h1>
@@ -359,12 +360,10 @@
         
         
             </div>
-            <div class="tab" id="event-calendar">
+            <div class="tab" id="event-calendar" style="height: 95%;">
                 <!-- Content of tab4.html goes here -->
-                <h1 style="text-align: center;"> Event Calendar </h1>
-                <div id="calendar"><img src="data/calendar.png" alt = "event calendar" style = "width: 95%"></div> 
-                <div id="upcoming-events"><h2>Upcoming Events:</h2>
-                <ul> <li>National Cheeseburger Day: 05/15/2023</li></ul> </div>
+                <!-- <div id="calendar"><img src="data/calendar.png" alt = "event calendar" style = "width: 95%"></div>  -->
+                <iframe src="tabs/event-calendar.html"  frameborder="0" style="width: 98%; height: 100%; transform: scale(1); transform-origin: top left;"></iframe>
             </div>
             <div class="tab" id="faq"> 
                 <h1 style="text-align: center;">Help</h1>
@@ -432,13 +431,45 @@
                     <div class="column">
                         <h2>Accessibility Features</h2>
                         <h5>
-                            <button class="material-icons">waving_hand</button> Alert for Assistance <br><br>
-                            <button class="material-icons">zoom_in</button> Zoom In <br><br>
-                            <button class="material-icons">zoom_out</button> Zoom Out <br><br>
-                            <button id="color-blind-toggle" class="material-icons">exposure</button> Color Blind Mode
+                            <button class="material-icons" style="cursor: pointer;" onclick="alert('Assistance is on the way!')">pan_tool</button> Alert for Assistance <br><br>
+                            <button class="material-icons" style="cursor: pointer;" >zoom_in</button> Zoom In <br><br>
+                            <button class="material-icons" style="cursor: pointer;" >zoom_out</button> Zoom Out <br><br>
+                            <button id="color-blind-toggle" class="material-icons" style="cursor: pointer;" onclick="toggleColorBlindMode()">exposure</button> Color Blind Mode
             
-                                </h5>
+                        </h5>
                     </div>
+                    <script>
+                        let zoomCounter = 0;
+                        const maxZoomCount = 3;
+
+                        function zoomIn() {
+                        if (zoomCounter < maxZoomCount) {
+                            document.body.style.zoom = `${parseFloat(getComputedStyle(document.body).zoom) * 1.1}`;
+                            zoomCounter++;
+                        }
+                        }
+
+                        function zoomOut() {
+                            if (zoomCounter > 0) {
+                                document.body.style.zoom = `${parseFloat(getComputedStyle(document.body).zoom) / 1.1}`;
+                                zoomCounter--;
+                            }
+                        }
+
+    
+                        function toggleColorBlindMode() {
+                          const colorBlindToggle = document.getElementById("color-blind-toggle");
+                          const isColorBlind = colorBlindToggle.getAttribute("data-color-blind") === "true";
+                    
+                          if (isColorBlind) {
+                            document.body.style.filter = "";
+                            colorBlindToggle.setAttribute("data-color-blind", "false");
+                          } else {
+                            document.body.style.filter = "grayscale(100%)";
+                            colorBlindToggle.setAttribute("data-color-blind", "true");
+                          }
+                        }
+                      </script>
                 </div>
             </div>
             <!-- <div class="tab" id="home"></div> -->

@@ -119,12 +119,17 @@
     </ul> </div>
   <script>
 
-    const events = {
-        '2023-04-28': { title: 'Cheeseburger Event', description: 'Come devour these cheeseburgers for a chance to win free tuition for the next semester', startingtime: '10:00 AM - 11:30 AM ', location: 'IRB2101'  },
-        '2023-05-05': { title: 'Free Boba', description: 'Taro flavor only ( ˘︹˘ )', startingtime: '09:00 AM - 11:00 AM', location: 'IRB4202'  },
-        '2023-04-30': { title: 'VR Therapy Session', description: 'Vent your anxiety issues to a talking penguin in VR!', startingtime: '2:00 PM - 4:00 PM', location: 'IRB1212'  },
-        // Add more events as needed
-    };
+    let events = {};
+
+    async function fetchEvents() {
+        const response = await fetch('../data/events.json');
+        events = await response.json();
+        const currentDate = new Date();
+        generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
+    }
+
+    fetchEvents();
+
 
     function pad(n) {
         return n < 10 ? '0' + n : n;

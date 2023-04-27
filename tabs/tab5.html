@@ -1,47 +1,106 @@
 <h1 style="text-align: center;">Help</h1>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+                <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+            
+                <style>
+                    h4 {
+                        font-size: 15px;
+                        margin: 10px;
+                    }
+                    h5 {
+                        font-size: 20px;
+                        margin: 20px;
+                    }
+                    .column {
+                        float: left;
+                        width: 50%;
+                    }
+                    @font-face {
+                        font-family: 'Material Icons';
+                        font-style: normal;
+                        font-weight: 400;
+                        src: local('Material Icons'),
+                            local('MaterialIcons-Regular'),
+                            url('data/MaterialIcons-Regular.ttf') format('truetype');
+                    }
 
-<style>
-    h4 {
-        font-size: 15px;
-        margin: 10px;
-    }
-    h5 {
-        font-size: 20px;
-        margin: 20px;
-    }
-    .column {
-        float: left;
-        width: 50%;
-    }
-</style>
+                    .material-icons {
+                        font-family: 'Material Icons';
+                        font-weight: normal;
+                        font-style: normal;
+                        font-size: 24px;  /* You can adjust the font size as needed */
+                        display: inline-block;
+                        line-height: 1;
+                        text-transform: none;
+                        letter-spacing: normal;
+                        word-wrap: normal;
+                        white-space: nowrap;
+                        direction: ltr;
+                        -webkit-font-smoothing: antialiased;
+                        text-rendering: optimizeLegibility;
+                        -moz-osx-font-smoothing: grayscale;
+                        font-feature-settings: 'liga';
+                    }
+                </style>
+            
+                <div class="contents">
+                    <div class="column">
+                        <br>
+                        <h2>Contact Our Office</h2>
+                        <i class="material-icons">email</i> <a href="mailto:ugrad@cs.umd.edu">ugrad@cs.umd.edu</a> <br>
+                        <i class="material-icons">local_phone</i> (301) 405-2662 <br>
+                        <i class="material-icons">location_on</i>8125 Paint Branch Dr, College Park, MD 20742 <br>
+                        <br>
+                        <h2>Hours</h2>
+                        Monday: 7AM - 10PM<br>
+                        Tuesday: 7AM - 10PM<br>
+                        Wednesday: 7AM - 10PM<br>
+                        Thursday: 7AM - 10PM<br>
+                        Friday: 7AM - 10PM<br>
+                        Saturday: CLOSED<br>
+                        Sunday: CLOSED<br>
+                    </div>
+            
+                    <div class="column">
+                        <h2>Accessibility Features</h2>
+                        <h5>
+                            <!-- -->
+                            <button class="material-icons" style="cursor: pointer;" onclick="alert('Assistance is on the way!')" >pan_tool</button> Alert for Assistance <br><br> 
+                            <button class="material-icons" style="cursor: pointer;" onclick="zoomIn()">zoom_in</button> Zoom In <br><br>
+                            <button class="material-icons" style="cursor: pointer;" onclick = "zoomOut()">zoom_out</button> Zoom Out <br><br>
+                            <button id="color-blind-toggle" class="material-icons" style="cursor: pointer;"  onclick="toggleColorBlindMode()"  >exposure</button> Color Blind Mode
+            
+                        </h5>
+                    </div>
+                    <script>
+                        let zoomCounter = 0;
+                        const maxZoomCount = 2;
 
-<div class="contents">
-    <div class="column">
-        <br>
-        <h2>Contact Our Office</h2>
-        <i class="material-icons">email</i> <a href="mailto:ugrad@cs.umd.edu">ugrad@cs.umd.edu</a> <br>
-        <i class="material-icons">local_phone</i> (301) 405-2662 <br>
-        <i class="material-icons">location_on</i>8125 Paint Branch Dr, College Park, MD 20742 <br>
-        <br>
-        <h2>Hours</h2>
-        Monday: 7AM - 10PM<br>
-        Tuesday: 7AM - 10PM<br>
-        Wednesday: 7AM - 10PM<br>
-        Thursday: 7AM - 10PM<br>
-        Friday: 7AM - 10PM<br>
-        Saturday: CLOSED<br>
-        Sunday: CLOSED<br>
-    </div>
+                        function zoomIn() {
+                        if (zoomCounter < maxZoomCount) {
+                            document.body.style.zoom = `${parseFloat(getComputedStyle(document.body).zoom) * 1.1}`;
+                            zoomCounter++;
+                        }
+                        }
 
-    <div class="column">
-        <h2>Accessibility Features</h2>
-        <h5>
-            <button class="material-icons">waving_hand</button> Alert for Assistance <br><br>
-            <button class="material-icons">zoom_in</button> Zoom In <br><br>
-            <button class="material-icons">zoom_out</button> Zoom Out <br><br>
-            <button id="color-blind-toggle" class="material-icons">exposure</button> Color Blind Mode
+                        function zoomOut() {
+                            if (zoomCounter > 0) {
+                                document.body.style.zoom = `${parseFloat(getComputedStyle(document.body).zoom) / 1.1}`;
+                                zoomCounter--;
+                            }
+                        }
 
-                </h5>
-    </div>
+    
+                        function toggleColorBlindMode() {
+                          const colorBlindToggle = document.getElementById("color-blind-toggle");
+                          const isColorBlind = colorBlindToggle.getAttribute("data-color-blind") === "true";
+                    
+                          if (isColorBlind) {
+                            document.body.style.filter = "";
+                            colorBlindToggle.setAttribute("data-color-blind", "false");
+                          } else {
+                            document.body.style.filter = "grayscale(100%)";
+                            colorBlindToggle.setAttribute("data-color-blind", "true");
+                          }
+                        }
+                      </script>
 </div>

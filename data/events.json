@@ -1,31 +1,27 @@
-[
-    {
-      "title": "Annual Concrete Eating Event",
-      "start": "2023-04-05T10:00:00",
-      "end": "2023-04-05T12:00:00",
-      "location": "Room 0101",
-      "description": "Join us in devouring these cinder blocks for a chance to win a $10 Starbucks giftcard!"
-    },
-    {
-      "title": "Free Boba Tea",
-      "start": "2023-04-12T14:00:00",
-      "end": "2023-04-12T16:00:00",
-      "location": "Room 0203",
-      "description": "Taro flavor only"
-    },
-    {
-      "title": "Career Fair",
-      "start": "2023-04-15T18:00:00",
-      "end": "2023-04-15T20:00:00",
-      "location": "Room 0420",
-      "description": "get a job? in this economy?"
-    },
-    {
-      "title": "National Cheeseburger Day",
-      "start": "2023-05-15T18:00:00",
-      "end": "2023-05-15T20:00:00",
-      "location": "The United States",
-      "description": "Religious Holiday"
-    }
-  ]
-  
+{
+  "2023-04-28": {
+      "title": "Cheeseburger Event",
+      "description": "Come devour these cheeseburgers for a chance to win free tuition for the next semester",
+      "startingtime": "10:00 AM - 11:30 AM ",
+      "location": "IRB2101"
+  },
+  "2023-04-30": {
+      "title": "VR Therapy Session",
+      "description": "Vent your anxiety issues to a talking penguin in VR!",
+      "startingtime": "2:00 PM - 4:00 PM",
+      "location": "IRB1212"
+  },
+  "2023-05-02": {
+    "title": "National 'National x Day' Day",
+    "description": "Celebrate the day that celebrates other national days!",
+    "startingtime": "1:00 PM - 5:00 PM",
+    "location": "IRB1111"
+},
+"2023-05-05": {
+  "title": "Free Boba",
+  "description": "Taro flavor only ( ˘︹˘ )",
+  "startingtime": "09:00 AM - 11:00 AM",
+  "location": "IRB4202"
+}
+
+}

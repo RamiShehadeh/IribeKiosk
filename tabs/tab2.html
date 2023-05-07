@@ -19,7 +19,7 @@
 
     function addPushpinsFromJSON(map) {
         // Fetch data from the JSON file
-        fetch('map_pushpins.json')
+        fetch('../data/map_pushpins.json')
             .then((response) => response.json())
             .then((locations) => {
             // Loop through the locations and create pushpins

@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brendan Iribe Center Welcome Kiosk</title>
     <!-- Font-->
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="fontawesome/css/all.min.css"> 
     <!-- Include Calendar CSS -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" /> -->
-    <script src="data/jquery-3.6.4.min.js"></script>
+    <!-- <script src="data/jquery-3.6.4.min.js"></script> -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script> -->
     <!-- Include Calendar -->
     <script src="fullcalendar-6.1.5/packages/core/index.global.min.js"></script>
@@ -18,12 +18,13 @@
     <script src="fullcalendar-6.1.5/packages/daygrid/index.global.min.js"></script>
     <script src="fullcalendar-6.1.5/packages/timegrid/index.global.min.js""></script>
     <script src="fullcalendar-6.1.5/packages/list/index.global.min.js""></script>
-    <!-- Include BING maps -->
-    <!-- <script type='text/javascript' src='http://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=AsS2WJiFEXQ7qijqiPhUD60JIW9Uj4HW2Y_q6Ua9jHGziDoy4_WS0OFfBrELlsFo' async defer></script> -->
+    <!-- Include BING maps with API key AsS2WJiFEXQ7qijqiPhUD60JIW9Uj4HW2Y_q6Ua9jHGziDoy4_WS0OFfBrELlsFo -->
+    <script type='text/javascript' src='http://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=AsS2WJiFEXQ7qijqiPhUD60JIW9Uj4HW2Y_q6Ua9jHGziDoy4_WS0OFfBrELlsFo' async defer></script>
     <!-- Kiosk Screen Button sound -->
     <audio id="button-click-sound" src="data/button.wav" preload="auto"></audio>
     <!-- Include Weather API -->
-    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
 
@@ -55,425 +56,14 @@
         </nav>
         
         <div class="tab-content">
-            <div class="tab" id="alerts">
-                <!-- Content of tab0.html goes here -->
-                <h1 style="text-align: center;">Alerts & Announcements</h1>
-                <div class="alert">
-                    <i class="fas fa-exclamation-triangle" style="color: red;"></i>
-                    <span> SEVERE WEATHER ALERT: Heavy wind expected throughout the day.</span>
-                </div>
-
-                <div class="notification">
-                    <i class="fas fa-info-circle"></i>
-                    <span>Room change: CMSC434 has been moved to Room 9420.</span>
-                </div>
-                <div class="notification">
-                    <i class="fas fa-info-circle"></i>
-                    <span>PSA: Free deodorant is being distributed in Room 4522 </span>
-                </div>
-                <!-- <div id="weather-widget">
-                    <!-- <h3>Current Weather</h3>
-                    <div class="weather-content">
-                        <div class="weather-icon">
-                            <img id="weather-icon" src="" alt="Weather icon">
-                        </div>
-                        <div class="weather-details">
-                            <p id="location"></p>
-                            <p id="temperature"></p>
-                            <p id="condition"></p>
-                        </div>
-                    </div> 
-                    
-                </div> -->
-                <img src="data/weather.png" alt = "current weather">
-            </div>
-            <div class="tab" id="building-map">
-                <head>
-
-                </head>
-                <body>
-                    <h1 style="text-align: center;">Building Map</h1>
-                
-                        <style>
-                
-                /* Style the tab */
-                /*OVERLAYS*/
-                .img-overlay-wrap {
-                  position: relative;
-                  width: 1300px; 
-                  height: 750px; 
-                  /* max-width: 120%; */
-                  display: inline-block; /* <= shrinks container to image size */
-                  transition: transform 150ms ease-in-out;
-                }
-                
-                .img-overlay-wrap svg {
-                  position: absolute;
-                  top: 0;
-                  left: 0;
-                }
-                
-                #elevator_overlay {
-                    position: absolute;
-                    top: 10px;
-                    left:1000px;
-                    border: 2px solid black;
-                }
-                
-                
-                /* Style the buttons that are used to open the tab content */
-                .taba button {
-                    background-color: #D3AF37; /* cccccc */
-                    border-radius: 6px;
-                    border: ridge;
-                    border-color: black;
-                    color: #fffcfc;
-                    font-size: 20px;
-                    font-weight: bold;
-                    text-align: center;
-                    padding: 10px;
-                    margin-bottom: 10px; /* 10px */
-                    width: 100%;
-                    height: 30%; /* 16.67% */
-                    cursor: pointer;
-                }
-                
-                /* Change background color of buttons on hover */
-                .taba button:hover {
-                    background-color: #d3b44f;
-                
-                }
-                
-                /* Create an active/current tablink class */
-                .taba button.active {
-                    background-color: #9c7800;
-                }
-                
-                /* Style the tab content */
-                
-                </style>
-                <div>
-                    <div class="taba">
-                        <table>
-                            <tr>
-                                <th></th>
-                                <th><button class="tablinks" onclick="openMap(event, 'FB0')">B0</button></th>
-                                <th><button class="tablinks" onclick="openMap(event, 'F0')" id = "default">0</button></th>
-                                <th><button class="tablinks" onclick="openMap(event, 'FM0')">M0</button></th>
-                                <th><button class="tablinks" onclick="openMap(event, 'F1')">1</button></th>
-                                <th><button class="tablinks" onclick="openMap(event, 'F2')">2</button></th>
-                                <th><button class="tablinks" onclick="openMap(event, 'F3')">3</button></th>
-                                <th><button class="tablinks" onclick="openMap(event, 'F4')">4</button></th>
-                                <th><button class="tablinks" onclick="openMap(event, 'F5')">5</button></th>
-                                <th><button class="tablinks" onclick="openMap(event, 'F6')">6</button></th>
-                            </tr>
-                          </table>
-                
-                    </div>
-                
-                    <!-- Tab content -->
-                    <div id="FB0" class="tabcontenta">
-                        <div class="img-overlay-wrap">
-                
-                            <img src="assets/basement.png" alt = "mapfb0" usemap= "#mapfb0">
-                        </div>
-                
-                    </div>
-                    <div id="F0" class="tabcontenta">
-                        <div class="img-overlay-wrap">
-                
-                            <img src="assets/ground0.png"   alt = "mapf0" usemap = "#mapf0" >
-                            <map name="mapf0">
-                                <area shape=poly coords = "206,525 ,285,585, 221,682,154,581" onclick="openDirections('f0110')" style="cursor: pointer;" >
-                            </map>
-                            <svg height = "750" width = "1300" id = "f0110" class = "directions">
-                                <polyline points="481,509 427,488 345,577 227,494 196,530" style="fill:none;stroke:#aa0a0a;stroke-width:3"/>
-                            </svg>
-                          
-                        </div>
-                
-                
-                    </div>
-                    <div id="FM0" class="tabcontenta">
-                        <div class="img-overlay-wrap">
-                
-                            <img src="assets/1.png" alt = "mapfm0" usemap= "#mapfm0">
-                        </div>
-                
-                    </div>
-                    <div id="F1" class="tabcontenta">
-                        <div class="img-overlay-wrap">
-                
-                            <img src="assets/first.png" alt = "mapf1" usemap= "#mapf1">
-                            <img src="assets/elevator.png" id = "elevator_overlay">
-                
-                            <map name="mapf1">
-                                <area shape=poly coords = "689,547 ,809,562, 795,654,674,651" onclick="openDirections('d1207')" >
-                            </map>
-                            <svg height = "750" width = "1300" id = "d1207" class = "directions">
-                                <polyline points="646,596 660,598 653,663 789,667 793,633" style="fill:none;stroke:#aa0a0a;stroke-width:3;"/>
-                            </svg>
-                        </div>
-                        
-                
-                
-                    </div>
-                    <div id="F2" class="tabcontenta">
-                        <div class="img-overlay-wrap">
-                            <img src="assets/second.png" alt = "mapf2" usemap= "#mapf2">
-                        </div>
-                
-                
-                    </div>
-                    <div id="F3" class="tabcontenta">
-                        <div class="img-overlay-wrap">
-                
-                            <img src="assets/third.png" alt = "mapf3" usemap= "#mapf3">
-                        </div>
-                
-                
-                    </div>
-                    <div id="F4" class="tabcontenta">
-                        <div class="img-overlay-wrap">
-                
-                            <img src="assets/fourth.png" alt = "mapf4" usemap= "#mapf4">
-                        </div>
-                
-                
-                    </div>
-                    <div id="F5" class="tabcontenta">
-                        <div class="img-overlay-wrap">
-                
-                            <img src="assets/fifth.png" alt = "mapf5" usemap= "#mapf5">
-                        </div>
-                
-                    </div>
-                    <div id="F6" class="tabcontenta">
-                        <div class="img-overlay-wrap">
-                            <img src="assets/sixth.png" alt = "mapf6" usemap= "#mapf6">
-                        </div>
-                
-                    </div>
-                </div>
-                <script>
-                    directionList = document.getElementsByClassName("directions");
-                
-                
-                    document.getElementById("default").click();
-                        
-                        for (i=0; i < directionList.length; i++){
-                            directionList[i].style.display = "none";
-                    }
-                
-                    function openDirections(directionName){
-                
-                
-                        for (i=0; i < directionList.length; i++){
-                            directionList[i].style.display = "none";
-                        }
-                        document.getElementById(directionName).style.display = "block";
-                        
-                        if (directionName.charAt(0) != 'f') {
-                            document.getElementById("elevator_overlay").style.display = "block";
-                        }
-                    }
-                
-                    function openMap(evt, mapName) {
-                        document.getElementById("elevator_overlay").style.display = "none";
-                
-                        for (i=0; i < directionList.length; i++){
-                            directionList[i].style.display = "none";
-                        }
-                        // Declare all variables
-                        var i, tabcontent, tablinks;
-                
-                        // Get all elements with class="tabcontent" and hide them
-                        tabcontent = document.getElementsByClassName("tabcontenta");
-                        for (i = 0; i < tabcontent.length; i++) {
-                            tabcontent[i].style.display = "none";
-                        }
-                
-                        // Get all elements with class="tablinks" and remove the class "active"
-                        tablinks = document.getElementsByClassName("tablinks");
-                        for (i = 0; i < tablinks.length; i++) {
-                            tablinks[i].className = tablinks[i].className.replace(" active", "");
-                        }
-                
-                        // Show the current tab, and add an "active" class to the button that opened the tab
-                        document.getElementById(mapName).style.display = "block";
-                        evt.currentTarget.className += " active";
-                    }
-                
-                
-                    
-                
-                </script>
-                </body>
-                
-            </div>
-            <div class="tab" id="campus-map">
-                <h1 style="text-align: center;"> Campus Map </h1>
-               <img src="data/campus_map.png" alt = "campus map" style="width: 95%; height: 92%;" class="zoomable" >
-            </div>
-            <div class="tab" id="campus-info">
-                <h1 style="text-align: center;"> Campus Information </h1>
-
-                <div id="campusInformation"> 
-                    <h2 style="text-align: left;">About UMD</h2>
-                    <p>
-                        The University of Maryland, College Park is the state's flagship university and one of the nation's preeminent public research universities.
-                        A global leader in research, entrepreneurship and innovation, the university is home to more than 40,700 students, 14,000 faculty and staff, 
-                        and nearly 400,000 alumni all dedicated to the pursuit of Fearless Ideas. Located just outside Washington, D.C., UMD students and faculty alike strive
-                        to discover and share new knowledge every day through our renowned research enterprise and programs in academics, the arts and athletics. 
-                        <br><br>
-                        The previous paragraph was largely copied from the <a href="https://www.umd.edu/#card-2-about">UMD home page.</a>
-                    </p>
-        
-                    <h2 style="text-align: left;">What is The Brendan Iribe Center?</h2>
-                    <p> 
-                        The Brendan Iribe Center for Computer Science and Engineering is the home of UMD's top-ranked <a href="https://www.cs.umd.edu/">Department of Computer Science<a>
-                        and renowned <a href="https://www.umiacs.umd.edu/">Institute for Advanced Computer Studies (UMIACS)</a>. This building includes six different floors with spaces  
-                        specifically designed for both classroom instruction as well as labs supporting groundbreaking research in virtual reality, artificial intelligence, robotics, 
-                        computer vision, algorithms, programming languages, and systems. Having opened in April of 2019, the Iribe Center has already become a beacon for 
-                        technological progress in in Maryland is well on track to serve as an even greater hub for both innovation and economic development nationwide. 
-        
-                        <br><br>
-                        The previous paragraph was paraphrased from the <a href="https://iribe.umd.edu/#about">home page</a> of the Brendan Iribe Center.
-                    </p>
-        
-        
-                    <h2 style="text-align: left;">How many rooms / lecture halls are there in Iribe? </h2>
-        
-                    <p>
-                        The Brendan Iribe center occupies 215,600 sq. ft of space, with 437 total rooms split amongst six different floors. There are 658 different seats available 
-                        within the various instructional spaces, with two different auditoriums that can seat 298 and 100 people respectively. Additionally, there are 13 research labs, 
-                        4 collaborative classrooms, 2 seminar rooms, as well as both a rooftop park and garden terrace for both students and faculty to enjoy.
-        
-                        <br><br>
-        
-                        The previous paragraph references informaiton available on the <a href="https://iribe.umd.edu/#about">Stats and Figures</a> page of the Iribe home page.
-        
-        
-        
-                </div>
-        
-        
-        
-            </div>
+            <div class="tab" id="alerts"></div>
+            <div class="tab" id="building-map"></div>
+            <div class="tab" id="campus-map"></div>
+            <div class="tab" id="campus-info"></div>
             <div class="tab" id="event-calendar" style="height: 95%;">
-                <!-- Content of tab4.html goes here -->
-                <!-- <div id="calendar"><img src="data/calendar.png" alt = "event calendar" style = "width: 95%"></div>  -->
                 <iframe src="tabs/event-calendar.html"  frameborder="0" style="width: 98%; height: 100%; transform: scale(1); transform-origin: top left;"></iframe>
             </div>
-            <div class="tab" id="faq"> 
-                <h1 style="text-align: center;">Help</h1>
-                <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
-            
-                <style>
-                    h4 {
-                        font-size: 15px;
-                        margin: 10px;
-                    }
-                    h5 {
-                        font-size: 20px;
-                        margin: 20px;
-                    }
-                    .column {
-                        float: left;
-                        width: 50%;
-                    }
-                    @font-face {
-                        font-family: 'Material Icons';
-                        font-style: normal;
-                        font-weight: 400;
-                        src: local('Material Icons'),
-                            local('MaterialIcons-Regular'),
-                            url('data/MaterialIcons-Regular.ttf') format('truetype');
-                    }
-
-                    .material-icons {
-                        font-family: 'Material Icons';
-                        font-weight: normal;
-                        font-style: normal;
-                        font-size: 24px;  /* You can adjust the font size as needed */
-                        display: inline-block;
-                        line-height: 1;
-                        text-transform: none;
-                        letter-spacing: normal;
-                        word-wrap: normal;
-                        white-space: nowrap;
-                        direction: ltr;
-                        -webkit-font-smoothing: antialiased;
-                        text-rendering: optimizeLegibility;
-                        -moz-osx-font-smoothing: grayscale;
-                        font-feature-settings: 'liga';
-                    }
-                </style>
-            
-                <div class="contents">
-                    <div class="column">
-                        <br>
-                        <h2>Contact Our Office</h2>
-                        <i class="material-icons">email</i> <a href="mailto:ugrad@cs.umd.edu">ugrad@cs.umd.edu</a> <br>
-                        <i class="material-icons">local_phone</i> (301) 405-2662 <br>
-                        <i class="material-icons">location_on</i>8125 Paint Branch Dr, College Park, MD 20742 <br>
-                        <br>
-                        <h2>Hours</h2>
-                        Monday: 7AM - 10PM<br>
-                        Tuesday: 7AM - 10PM<br>
-                        Wednesday: 7AM - 10PM<br>
-                        Thursday: 7AM - 10PM<br>
-                        Friday: 7AM - 10PM<br>
-                        Saturday: CLOSED<br>
-                        Sunday: CLOSED<br>
-                    </div>
-            
-                    <div class="column">
-                        <h2>Accessibility Features</h2>
-                        <h5>
-                            <!-- onclick="alert('Assistance is on the way!')" onclick="toggleColorBlindMode()" -->
-                            <button class="material-icons" style="cursor: pointer;" >pan_tool</button> Alert for Assistance <br><br> 
-                            <button class="material-icons" style="cursor: pointer;" >zoom_in</button> Zoom In <br><br>
-                            <button class="material-icons" style="cursor: pointer;" >zoom_out</button> Zoom Out <br><br>
-                            <button id="color-blind-toggle" class="material-icons" style="cursor: pointer;" >exposure</button> Color Blind Mode
-            
-                        </h5>
-                    </div>
-                    <script>
-                        let zoomCounter = 0;
-                        const maxZoomCount = 3;
-
-                        function zoomIn() {
-                        if (zoomCounter < maxZoomCount) {
-                            document.body.style.zoom = `${parseFloat(getComputedStyle(document.body).zoom) * 1.1}`;
-                            zoomCounter++;
-                        }
-                        }
-
-                        function zoomOut() {
-                            if (zoomCounter > 0) {
-                                document.body.style.zoom = `${parseFloat(getComputedStyle(document.body).zoom) / 1.1}`;
-                                zoomCounter--;
-                            }
-                        }
-
-    
-                        function toggleColorBlindMode() {
-                          const colorBlindToggle = document.getElementById("color-blind-toggle");
-                          const isColorBlind = colorBlindToggle.getAttribute("data-color-blind") === "true";
-                    
-                          if (isColorBlind) {
-                            document.body.style.filter = "";
-                            colorBlindToggle.setAttribute("data-color-blind", "false");
-                          } else {
-                            document.body.style.filter = "grayscale(100%)";
-                            colorBlindToggle.setAttribute("data-color-blind", "true");
-                          }
-                        }
-                      </script>
-                </div>
-            </div>
-            <!-- <div class="tab" id="home"></div> -->
+            <div class="tab" id="faq"> </div>
         </div>
         <nav class="vertical-menu-right">
             <img src="data/umd_logo.png" alt="UMD" class="logo" />
@@ -483,7 +73,7 @@
         </nav>
     </div>
     <script src="script.js"></script>
-    <!-- <script src="weather.js"></script> -->
+    <script src="data/weather.js"></script>
 
 </body>
 </html>

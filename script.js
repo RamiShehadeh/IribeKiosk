@@ -43,7 +43,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   
     // Load the content of each tab from separate HTML files
-    // Load the content of each tab from templates
+    $("#alerts").load("tabs/tab0.html");
+    $("#building-map").load("tabs/tab1.html");
+    $("#campus-map").load("tabs/tab2.html");
+    $("#campus-info").load("tabs/tab3.html");
+    $("#faq").load("tabs/tab5.html");
+    
 
     // Initialize the calendar
   //   (async function() {

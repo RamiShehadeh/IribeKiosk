@@ -1,4 +1,50 @@
 <h1 style="text-align: center;">Alerts & Announcements</h1>
+<!-- Weather & Time -->
+<div class="weather-time-container"> 
+
+    <div id="weather-widget">
+        <h3>Current Weather</h3>
+        <div class="weather-content">
+            <div class="weather-icon">
+                <img id="weather-icon" src="" alt="Weather icon">
+            </div>
+            <div class="weather-details">
+                <p id="location"></p>
+                <p id="temperature"></p>
+                <p id="condition"></p>
+            </div>
+        </div>
+    </div>
+    <div id = "current-time">
+        <script>
+            function updateTime() {
+            const now = new Date();
+            let hours = now.getHours();
+            const minutes = now.getMinutes();
+            const seconds = now.getSeconds();
+            const amPm = hours >= 12 ? 'PM' : 'AM';
+
+            // Convert to 12-hour format
+            hours = hours % 12;
+            // 12-hour format should display '12' instead of '0'
+            hours = hours === 0 ? 12 : hours;
+
+            // Pad the minutes and seconds with leading zeros if needed
+            const formattedMinutes = minutes.toString().padStart(2, '0');
+            const formattedSeconds = seconds.toString().padStart(2, '0');
+
+            document.getElementById('current-time').innerHTML = `${hours}:${formattedMinutes}:${formattedSeconds} ${amPm}`;
+            setTimeout(updateTime, 1000);
+        }
+
+        updateTime();
+
+        </script>
+        
+    </div>
+</div>
+
+<!-- Alerts -->
 <div class="alert">
     <i class="fas fa-exclamation-triangle" style="color: red;"></i>
     <span> SEVERE WEATHER ALERT: Heavy wind expected throughout the day.</span>
@@ -11,17 +57,6 @@
     <i class="fas fa-info-circle"></i>
     <span>PSA: Free deodorant is being distributed in Room 4522 </span>
 </div>
-<div id="weather-widget">
-    <h3>Current Weather</h3>
-    <div class="weather-content">
-        <div class="weather-icon">
-            <img id="weather-icon" src="" alt="Weather icon">
-        </div>
-        <div class="weather-details">
-            <p id="location"></p>
-            <p id="temperature"></p>
-            <p id="condition"></p>
-        </div>
-    </div>
-</div>
 <!-- Add more notifications as needed --> 
+
+

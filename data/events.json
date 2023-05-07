@@ -1,27 +1,21 @@
 {
-  "2023-04-28": {
-      "title": "Cheeseburger Event",
-      "description": "Come devour these cheeseburgers for a chance to win free tuition for the next semester",
+  "2023-05-10": {
+      "title": "VR Lab Showcase",
+      "description": "Come check out these cool VR Projects",
       "startingtime": "10:00 AM - 11:30 AM ",
       "location": "IRB2101"
   },
-  "2023-04-30": {
-      "title": "VR Therapy Session",
-      "description": "Vent your anxiety issues to a talking penguin in VR!",
-      "startingtime": "2:00 PM - 4:00 PM",
-      "location": "IRB1212"
+  "2023-05-23": {
+      "title": "CMNS Commencement",
+      "description": "Congratulations to the class of 2023",
+      "startingtime": "12:00 PM - 4:00 PM",
+      "location": "Xfinity Center"
   },
-  "2023-05-02": {
+  "2023-05-27": {
     "title": "National 'National x Day' Day",
     "description": "Celebrate the day that celebrates other national days!",
     "startingtime": "1:00 PM - 5:00 PM",
-    "location": "IRB1111"
-},
-"2023-05-05": {
-  "title": "Free Boba",
-  "description": "Taro flavor only ( ˘︹˘ )",
-  "startingtime": "09:00 AM - 11:00 AM",
-  "location": "IRB4202"
+    "location": "IRB1211"
 }
 
 }

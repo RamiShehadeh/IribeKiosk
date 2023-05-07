@@ -1,6 +1,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     const tabButtons = document.querySelectorAll('.tab-button');
+    const homeButton = document.querySelectorAll('.home-button');
     const tabs = document.querySelectorAll('.tab');
     // const homeImage = document.getElementById('testudo');
 
@@ -27,6 +28,24 @@ document.addEventListener('DOMContentLoaded', () => {
   
         // Deactivate all buttons and tabs
         // homeImage.classList.remove('active');
+        homeButton.forEach(btn => btn.classList.remove('active'));
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        tabs.forEach(tab => tab.classList.remove('active'));
+  
+        // Activate the clicked button and its corresponding tab
+        button.classList.add('active');
+        document.getElementById(target).classList.add('active');
+      });
+    });
+
+    homeButton.forEach(button => {
+      button.addEventListener('click', () => {
+        // play sound
+        playButtonClickSound();
+        const target = button.getAttribute('data-target');
+  
+        // Deactivate all buttons and tabs
+        // homeImage.classList.remove('active');
         tabButtons.forEach(btn => btn.classList.remove('active'));
         tabs.forEach(tab => tab.classList.remove('active'));
   
@@ -39,8 +58,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Set the home active by default
     //tabButtons[5].click();
 
-    tabButtons[3].click();
-
+    // tabButtons[3].click();
+    homeButton[0].click();
   
     // Load the content of each tab from separate HTML files
     $("#alerts").load("tabs/tab0.html");

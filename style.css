@@ -122,9 +122,9 @@ html, body {
 }
 
 .accessibility-button {
-    position: absolute;
-    top: 50px;
-    right: 50px;
+    position: relative;
+    top: -10px;
+    right: 0px;
     background-color: #fff;
     border: 2px solid #000;
     border-radius: 50%;
@@ -167,20 +167,21 @@ html, body {
     background-color: #f5f5f5;
 }
 .home-button {
-    position: absolute;
-    top: 50px;
-    right: 50px;
+    position: relative;
+    top: -10px;
+    right: 0px;
     background-color: #fff;
     border: 2px solid #000;
     border-radius: 50%;
     width: 60px;
-    height: 60px;
+    height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 24px;
     color: #000;
     box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.5);
+
   }
   
   .home-button:hover {

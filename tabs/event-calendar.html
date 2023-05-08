@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../fontawesome/css/all.min.css"> 
   <title>Event Calendar</title>
   <style>
     body {
@@ -105,6 +106,35 @@
         margin: 10px;
         font-weight: bold;
     }
+    .fa-solid {
+    font-size: 20px; /* Adjust the size of the icons as needed */
+    }
+
+    #arrow {
+        position: relative;
+    top: -8px;
+    right: 0px;
+    background-color: #fff;
+    border: 2px solid #000;
+    border-radius: 50%;
+    /* width: 60px;
+    height: 80px; */
+    margin-left: 20px;
+    margin-right: 20px;
+    top: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: #000;
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.5);
+    }
+
+    #arrow:hover {
+        background-color: #000;
+        color: #fff;
+        cursor: pointer;
+    }
     #upcoming-events {
         color:#f5f5f5;
     }
@@ -115,11 +145,7 @@
 <body>
   <h1 style="text-align: center; color:#f5f5f5"> Event Calendar </h1>
   <div id="calendar"></div>
-  <div id="upcoming-events"><h2>Upcoming Events:</h2>
-    <ul> <li>Cheeseburger Event: 04/28/2023</li>
-         <li>VR Therapy Session: 04/30/2023</li>
-         <li>Free Boba: 05/05/2023</li>
-    </ul> </div>
+  <div id="upcoming-events"><h2>Upcoming Events:</h2> </div>
   <script>
 
     let events = {};
@@ -129,7 +155,22 @@
         events = await response.json();
         const currentDate = new Date();
         generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
+        updateUpcomingEvents(currentDate, events);
     }
+    function updateUpcomingEvents(currentDate, events) {
+    const upcomingEvents = Object.entries(events)
+        .filter(([dateKey, event]) => new Date(dateKey) >= currentDate)
+        .sort(([aDateKey], [bDateKey]) => new Date(aDateKey) - new Date(bDateKey));
+
+    const upcomingEventsHtml = upcomingEvents
+        .map(([dateKey, event]) => `<li>${event.title}: ${dateKey}</li>`)
+        .join('');
+
+    document.getElementById('upcoming-events').innerHTML = `
+        <h2>Upcoming Events:</h2>
+        <ul>${upcomingEventsHtml}</ul>
+    `;
+}
 
     fetchEvents();
 
@@ -159,9 +200,10 @@
         let calendarHtml = `
             <div class="calendar">
                 <div class="calendar-header">
-                    <button id = "arrow" onclick="generateCalendar(${year}, ${month - 1})">&lt;</button>
+                    <button id="arrow" onclick="generateCalendar(${year}, ${month - 1})"><i class="fas fa-arrow-left"></i></button>
                     <h2>${firstDay.toLocaleString('default', { month: 'long' })} ${year}</h2>
-                    <button id = "arrow" onclick="generateCalendar(${year}, ${month + 1})">&gt;</button>
+                    <button id="arrow" onclick="generateCalendar(${year}, ${month + 1})"><i class="fas fa-arrow-right"></i></button>
+
                 </div>
                 <div class="calendar-days">
         `;
@@ -229,6 +271,11 @@
             eventDetails.style.display = 'none';
         }
     }
+    // Reset calendar to the current month when the window loses focus
+    window.addEventListener('blur', () => {
+        const currentDate = new Date();
+        generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
+    });
 
 
     // X to close event box

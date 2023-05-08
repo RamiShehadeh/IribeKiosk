@@ -73,7 +73,7 @@ html, body {
     flex-direction: column;
     background-color: #FB3640; /*#6d9eeb */
     padding: 20px;
-    justify-content: space-between; /* Space the buttons evenly --> space-between*/ 
+    justify-content: space-between; /* Space the buttons evenly --> space-between  */
     height: 100%;
     padding-top: 60px;
     width: 15%;
@@ -122,11 +122,20 @@ html, body {
 
 .accessibility-container {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.buttons-wrapper {
+    display: flex;
+    flex-direction: column;
+    /* top: -60px; */
 }
 
 .accessibility-button {
     position: relative;
-    top: -10px;
+    top: 0px;
     right: 0px;
     background-color: #fff;
     border: 2px solid #000;
@@ -147,27 +156,68 @@ html, body {
 }
 
 .accessibility-options {
-    position: absolute;
+    /* position: absolute; */
     display: none;
-    background-color: white;
+    order: -1;
+    /* background-color: white;
     border: 1px solid #ccc;
     padding: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    z-index: 1;
+    z-index: 1; */
+}
+.accessibility-back-button {
+    position: relative;
+    margin-right: 10px;
+    background-color: #fff;
+    border: 2px solid #000;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    top: -525px;
+    display: none;
+    justify-content: center;
+    /* align-items: center; */
+    font-size: 24px;
+    color: #000;
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.5);
+    cursor: pointer;
 }
 
-.option-button {
-    display: block;
-    background-color: transparent;
-    border: none;
+.accessibility-back-button:hover {
+    background-color: #000;
+    color: #fff;
     cursor: pointer;
-    text-align: left;
+}
+
+
+.option-button {
+    border-radius: 6px;
+    border: ridge;
+    border-color: #171717;
+    /* border-color: black; */
+    /* color: #fffcfc; */
+    font-size: 30px;
+    /* size: 50px; */
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 20px; /* 10px */
     width: 100%;
-    padding: 5px 0;
+    height: 35%; /* 16.67% */
+    cursor: pointer;
+    background-color: #ffffffd4;
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.5);
 }
 
 .option-button:hover {
-    background-color: #f5f5f5;
+    background-color: #646464;
+    color: #fff;
+
+}
+.option-button.active {
+    background-color: #000000;
+    color: #fff;
+
 }
 .home-button {
     position: relative;
@@ -213,7 +263,7 @@ html, body {
     border-color: #171717;
     /* border-color: black; */
     /* color: #fffcfc; */
-    font-size: 20px;
+    font-size: 24px;
     font-weight: bold;
     text-align: center;
     padding: 10px;
@@ -320,8 +370,9 @@ html, body {
 #campus-map {
     padding-right: 40px;
     padding-top: 0px;
-    padding-bottom: 30px; 
+    padding-bottom: 0px; 
     /* padding-top: 0px; */
+    height: 90%;
     
 }
 #campusmap {
@@ -330,6 +381,8 @@ html, body {
     width: 90%;
     height: 90%;
     padding: 25px;
+    top: -12px;
+    margin-bottom: 30px;
 
 }
 
@@ -339,8 +392,11 @@ html, body {
     width: 950px;
 }
 
-#campusInformation a {
-    color: white;
+#campusInformation a:link {
+    color: gold;
+}
+#campusInformation a:visited {
+    color: red;
 }
 
 /* --- Event Calendar --- */

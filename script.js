@@ -65,8 +65,8 @@ document.addEventListener('DOMContentLoaded', () => {
     $("#alerts").load("tabs/tab0.html");
     $("#building-map").load("tabs/tab1.html");
     $("#campus-map").load("tabs/tab2.html");
-    $("#campus-info").load("tabs/tab3.html");
-    $("#faq").load("tabs/tab5.html");
+    $("#hours").load("tabs/tab3.html");
+    $("#about").load("tabs/tab5.html");
     
 
     // Initialize the calendar
@@ -75,6 +75,47 @@ document.addEventListener('DOMContentLoaded', () => {
   //     initializeCalendar(events);
   //     displayUpcomingEvents(events);
   // })();
+
+  const accessibilityButton = document.querySelector('.accessibility-button');
+  const accessibilityBackButton = document.querySelector('.accessibility-back-button');
+  const accessibilityOptions = document.querySelector('.accessibility-options');
+  const originalMenuButtons = document.querySelectorAll('.vertical-menu-right .tab-button');
+
+  accessibilityButton.addEventListener('click', () => {
+      // Hide the original menu buttons and show the accessibility options
+      originalMenuButtons.forEach(button => button.style.display = 'none');
+      accessibilityButton.style.display = 'none';
+      accessibilityOptions.style.display = 'block';
+      accessibilityBackButton.style.display = 'block';
+  });
+
+  accessibilityBackButton.addEventListener('click', () => {
+      // Hide the accessibility options and back button, and show the original menu buttons
+      originalMenuButtons.forEach(button => button.style.display = 'block');
+      accessibilityOptions.style.display = 'none';
+      accessibilityBackButton.style.display = 'none';
+      accessibilityButton.style.display = 'block';
+  });
+
+  $(document).ready(function() {
+    // When clicking anywhere outside the menu
+    $(document).click(function(event) {
+        if (!$(event.target).closest('.vertical-menu-right').length) {
+            $('.accessibility-options').hide();
+            $('.accessibility-back-button').hide();
+            $('.accessibility-button').show();
+            $('.tab-button').show();
+        }
+    });
+
+    // When switching to another tab
+    $('.tab-button').click(function() {
+        $('.accessibility-options').hide();
+        $('.accessibility-back-button').hide();
+        $('.accessibility-button').show();
+        $('.tab-button').show();
+    });
+});
 
   // Load the content of the alert/notification bar from tab0.html
   document.querySelector(".alerts-container").innerHTML = document.querySelector("#tab0-template .alert, #tab0-template .notification").innerHTML;

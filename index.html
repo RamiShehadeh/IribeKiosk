@@ -50,43 +50,53 @@
         
         <nav class="vertical-menu-left">
             <img src="data/testudo.png" alt="Testudo" class="testudo" id = "testudo" />
-            <div class="accessibility-container">
-                <button class="accessibility-button">
-                    <i class="fas fa-wheelchair"></i>
-                </button>
-                <div class="accessibility-options" tabindex="-1">
-                    <button class="option-button">
-                        <i class="fas fa-search-plus"></i> Zoom In
-                    </button>
-                    <button class="option-button">
-                        <i class="fas fa-low-vision"></i> Color Blind Mode
-                    </button>
-                    <!-- Add more accessibility options as needed -->
-                </div>
-            </div>            
+            <button class="home-button" data-target="alerts" onclick="this.classList.toggle('active')">
+                <i class="fas fa-home"></i>
+            </button>
+            
             <button class="tab-button" data-target="building-map" onclick="this.classList.toggle('active')">Building Map</button>
             <button class="tab-button" data-target="campus-map" onclick="this.classList.toggle('active')">Campus Map</button>
-            <button class="tab-button" data-target="campus-info" onclick="this.classList.toggle('active')">Information about Iribe</button>
+            <button class="tab-button" data-target="hours" onclick="this.classList.toggle('active')">Hours</button>
         </nav>
         
         <div class="tab-content">
             <div class="tab" id="alerts"></div>
             <div class="tab" id="building-map"></div>
             <div class="tab" id="campus-map"></div>
-            <div class="tab" id="campus-info"></div>
+            <div class="tab" id="hours"></div>
             <div class="tab" id="event-calendar" style="height: 95%;">
                 <iframe src="tabs/event-calendar.html"  frameborder="0" style="width: 98%; height: 100%; transform: scale(1); transform-origin: top left;"></iframe>
             </div>
-            <div class="tab" id="faq"> </div>
+            <div class="tab" id="about"> </div>
         </div>
         <nav class="vertical-menu-right">
             <img src="data/umd_logo.png" alt="UMD" class="logo" />
-            <button class="home-button" data-target="alerts" onclick="this.classList.toggle('active')">
-                <i class="fas fa-home"></i>
-            </button>
+            <div class="accessibility-container">
+                <div class="buttons-wrapper">
+                    <button class="accessibility-back-button">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <button class="accessibility-button">
+                        <i class="fas fa-wheelchair"></i>
+                    </button>
+                </div>
+                <div class="accessibility-options" tabindex="-1">
+                    <button class="option-button">
+                        <i class="fas fa-search-plus"></i> Zoom In
+                    </button>
+                    <button class="option-button">
+                        <i class="fas fa-search-minus"></i> Zoom Out
+                    </button>
+                    <button class="option-button">
+                        <i class="fas fa-low-vision"></i> Color Blind Mode
+                    </button>
+                    <!-- Add more accessibility options as needed -->
+                </div>
+            </div>
+            
             <button class="tab-button" data-target="alerts" onclick="this.classList.toggle('active')">Alerts</button>
             <button class="tab-button" data-target="event-calendar" onclick="this.classList.toggle('active')">Event Calendar</button>
-            <button class="tab-button" data-target="faq" onclick="this.classList.toggle('active')">Help</button>
+            <button class="tab-button" data-target="about" onclick="this.classList.toggle('active')">About Iribe</button>
         </nav>
     </div>
     <script src="script.js"></script>

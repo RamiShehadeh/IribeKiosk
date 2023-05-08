@@ -54,7 +54,31 @@
         "longitude": -76.949724,
         "text": "D",
         "color": "orange"
+    },
+    {
+        "title": "STAMP Student Union",
+        "subTitle": "Student Activity Center ",
+        "latitude": 38.988223,
+        "longitude": -76.944657,
+        "text": "A",
+        "color": "#08b7ef"
+    },
+    {
+        "title": "Eppley Recreation Center",
+        "subTitle": "Student Activity Center (GYM)",
+        "latitude": 38.993646,
+        "longitude": -76.945233,
+        "text": "A",
+        "color": "#08b7ef"
+    },
+    {
+        "title": "Ritchie Coliseum",
+        "subTitle": "Student Activity Center (GYM)",
+        "latitude": 38.985031,
+        "longitude": -76.936507,
+        "text": "A",
+        "color": "#08b7ef"
     }
-      
+
+
   ]
-  

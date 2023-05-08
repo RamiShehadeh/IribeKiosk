@@ -159,11 +159,16 @@ html, body {
     /* position: absolute; */
     display: none;
     order: -1;
+    /* transition: opacity 1s ease-in-out; */
+
     /* background-color: white;
     border: 1px solid #ccc;
     padding: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     z-index: 1; */
+}
+.accessibility-options.show {
+    /* transition: opacity 1s ease-in-out; */
 }
 .accessibility-back-button {
     position: relative;
@@ -205,8 +210,10 @@ html, body {
     width: 100%;
     height: 35%; /* 16.67% */
     cursor: pointer;
-    background-color: #ffffffd4;
+    background-color: #96c33dd4;
     box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.5);
+    /* transition: opacity 1s ease-in-out; */
+
 }
 
 .option-button:hover {
@@ -378,12 +385,22 @@ html, body {
 #campusmap {
     position: relative;
     border: 1px solid black;
-    width: 90%;
-    height: 90%;
+    width: 80%;
+    height: 680px;
     padding: 25px;
-    top: -12px;
+    /* top: -12px; */
     margin-bottom: 30px;
+    margin-right: 10px;
 
+}
+#legend {
+    width: 20%;
+    height: 300px;
+    /* size: 50%; */
+}
+.map-leg{
+    display:flex;
+    justify-content: space-between;
 }
 
 /* --- Information About Campus --- */
@@ -447,7 +464,7 @@ html, body {
 /* Weather Widget */
 .weather-time-container{
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     flex-wrap: wrap;
 }
 
@@ -457,6 +474,9 @@ html, body {
     padding: 20px;
     width: 300px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    margin-right: 20px;
+    height: 300px;
 }
 
 .weather-content {
@@ -492,6 +512,8 @@ h3 {
 }
 /* Time */
 #current-time {
+    position: absolute;
+    top: 10px;
     display: flex;
     /* justify-content: center; */
     align-items: center;
@@ -505,22 +527,62 @@ h3 {
     /* margin: 20px auto; */
    /* left: 100px; */
 }
-/* #current-time {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2rem;
-    text-align: center;
-    background-color: #34495e;
-    border-radius: 5px;
-    padding: 10px;
-} */
-
-/* .zoomable {
-    transition: transform 0.5s ease;
+.social-media-widgets {
+    /* display: flex; */
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+.weather-social{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+/* Slideshow */
+.slideshow-container {
+    position: relative;
+    height: 500px;
     overflow: hidden;
   }
   
-  .zoomable:hover {
-    transform: scale(1.4);
-    transform-origin: center;
-
-  } */
+  .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
+  .slide img {
+    max-width: 100%;
+    max-height: 100%;
+    /* object-fit: contain; */
+  }
+  
+  .slide.active {
+    opacity: 1;
+  }
+  
+  .dots-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 0 5px;
+    background-color: gray;
+    transition: background-color 0.5s ease-in-out;
+  }
+  
+  .dot.active {
+    background-color: white;
+  }

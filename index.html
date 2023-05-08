@@ -8,6 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="fontawesome/css/all.min.css"> 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     <!-- Include Calendar CSS -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" /> -->
     <!-- <script src="data/jquery-3.6.4.min.js"></script> -->
@@ -43,6 +45,10 @@
                 </div>
                 <div class="notification">
                     <i class="fas fa-info-circle"></i>
+                    <span>Room change: CMSC131 has been moved to Room 2107. </span>
+                </div>
+                <div class="notification">
+                    <i class="fas fa-info-circle"></i>
                     <span>PSA: Free deodorant is being distributed in Room 4522 </span>
                 </div>
             </div>
@@ -68,6 +74,7 @@
                 <iframe src="tabs/event-calendar.html"  frameborder="0" style="width: 98%; height: 100%; transform: scale(1); transform-origin: top left;"></iframe>
             </div>
             <div class="tab" id="about"> </div>
+            <div class="tab" id="alertz"> </div>
         </div>
         <nav class="vertical-menu-right">
             <img src="data/umd_logo.png" alt="UMD" class="logo" />
@@ -81,6 +88,7 @@
                     </button>
                 </div>
                 <div class="accessibility-options" tabindex="-1">
+                    <!-- <h3> accessibility options</h3> -->
                     <button class="option-button">
                         <i class="fas fa-search-plus"></i> Zoom In
                     </button>
@@ -94,7 +102,7 @@
                 </div>
             </div>
             
-            <button class="tab-button" data-target="alerts" onclick="this.classList.toggle('active')">Alerts</button>
+            <button class="tab-button" data-target="alertz" onclick="this.classList.toggle('active')">Alerts</button>
             <button class="tab-button" data-target="event-calendar" onclick="this.classList.toggle('active')">Event Calendar</button>
             <button class="tab-button" data-target="about" onclick="this.classList.toggle('active')">About Iribe</button>
         </nav>

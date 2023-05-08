@@ -1,106 +1,69 @@
-<h1 style="text-align: center;">Help</h1>
-                <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
-            
-                <style>
-                    h4 {
-                        font-size: 15px;
-                        margin: 10px;
-                    }
-                    h5 {
-                        font-size: 20px;
-                        margin: 20px;
-                    }
-                    .column {
-                        float: left;
-                        width: 50%;
-                    }
-                    @font-face {
-                        font-family: 'Material Icons';
-                        font-style: normal;
-                        font-weight: 400;
-                        src: local('Material Icons'),
-                            local('MaterialIcons-Regular'),
-                            url('data/MaterialIcons-Regular.ttf') format('truetype');
-                    }
+<h1 style="text-align: center;">Aboute Iribe</h1>
 
-                    .material-icons {
-                        font-family: 'Material Icons';
-                        font-weight: normal;
-                        font-style: normal;
-                        font-size: 24px;  /* You can adjust the font size as needed */
-                        display: inline-block;
-                        line-height: 1;
-                        text-transform: none;
-                        letter-spacing: normal;
-                        word-wrap: normal;
-                        white-space: nowrap;
-                        direction: ltr;
-                        -webkit-font-smoothing: antialiased;
-                        text-rendering: optimizeLegibility;
-                        -moz-osx-font-smoothing: grayscale;
-                        font-feature-settings: 'liga';
-                    }
-                </style>
-            
-                <div class="contents">
-                    <div class="column">
-                        <br>
-                        <h2>Contact Our Office</h2>
-                        <i class="material-icons">email</i> <a href="mailto:ugrad@cs.umd.edu">ugrad@cs.umd.edu</a> <br>
-                        <i class="material-icons">local_phone</i> (301) 405-2662 <br>
-                        <i class="material-icons">location_on</i>8125 Paint Branch Dr, College Park, MD 20742 <br>
-                        <br>
-                        <h2>Hours</h2>
-                        Monday: 7AM - 10PM<br>
-                        Tuesday: 7AM - 10PM<br>
-                        Wednesday: 7AM - 10PM<br>
-                        Thursday: 7AM - 10PM<br>
-                        Friday: 7AM - 10PM<br>
-                        Saturday: CLOSED<br>
-                        Sunday: CLOSED<br>
-                    </div>
-            
-                    <div class="column">
-                        <h2>Accessibility Features</h2>
-                        <h5>
-                            <!-- -->
-                            <button class="material-icons" style="cursor: pointer;" onclick="alert('Assistance is on the way!')" >pan_tool</button> Alert for Assistance <br><br> 
-                            <button class="material-icons" style="cursor: pointer;" onclick="zoomIn()">zoom_in</button> Zoom In <br><br>
-                            <button class="material-icons" style="cursor: pointer;" onclick = "zoomOut()">zoom_out</button> Zoom Out <br><br>
-                            <button id="color-blind-toggle" class="material-icons" style="cursor: pointer;"  onclick="toggleColorBlindMode()"  >exposure</button> Color Blind Mode
-            
-                        </h5>
-                    </div>
-                    <script>
-                        let zoomCounter = 0;
-                        const maxZoomCount = 2;
+<style>
+    h2 {
+        text-align: left;
+    }
 
-                        function zoomIn() {
-                        if (zoomCounter < maxZoomCount) {
-                            document.body.style.zoom = `${parseFloat(getComputedStyle(document.body).zoom) * 1.1}`;
-                            zoomCounter++;
-                        }
-                        }
+    .contents {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        margin-right: 20px;
+        margin-left: 20px;
+        
+    }
+</style>
 
-                        function zoomOut() {
-                            if (zoomCounter > 0) {
-                                document.body.style.zoom = `${parseFloat(getComputedStyle(document.body).zoom) / 1.1}`;
-                                zoomCounter--;
-                            }
-                        }
+<div id="campusInformation"> 
+    <h2>About UMD</h2>
+    <p>
+        The University of Maryland, College Park is the state's flagship university and one of the nation's preeminent public research universities.
+        A global leader in research, entrepreneurship and innovation, the university is home to more than 40,700 students, 14,000 faculty and staff, 
+        and nearly 400,000 alumni all dedicated to the pursuit of Fearless Ideas. Located just outside Washington, D.C., UMD students and faculty alike strive
+        to discover and share new knowledge every day through our renowned research enterprise and programs in academics, the arts and athletics. 
+        <br><br>
+        The previous paragraph was largely copied from the <a href="https://www.umd.edu/#card-2-about">UMD home page.</a>
+    </p>
 
-    
-                        function toggleColorBlindMode() {
-                          const colorBlindToggle = document.getElementById("color-blind-toggle");
-                          const isColorBlind = colorBlindToggle.getAttribute("data-color-blind") === "true";
-                    
-                          if (isColorBlind) {
-                            document.body.style.filter = "";
-                            colorBlindToggle.setAttribute("data-color-blind", "false");
-                          } else {
-                            document.body.style.filter = "grayscale(100%)";
-                            colorBlindToggle.setAttribute("data-color-blind", "true");
-                          }
-                        }
-                      </script>
+    <h2>What is The Brendan Iribe Center?</h2>
+    <p> 
+        The Brendan Iribe Center for Computer Science and Engineering is the home of UMD's top-ranked <a href="https://www.cs.umd.edu/">Department of Computer Science<a>
+        and renowned <a href="https://www.umiacs.umd.edu/">Institute for Advanced Computer Studies (UMIACS)</a>. This building includes six different floors with spaces  
+        specifically designed for both classroom instruction as well as labs supporting groundbreaking research in virtual reality, artificial intelligence, robotics, 
+        computer vision, algorithms, programming languages, and systems. Having opened in April of 2019, the Iribe Center has already become a beacon for 
+        technological progress in in Maryland is well on track to serve as an even greater hub for both innovation and economic development nationwide. 
+
+        <br><br>
+        The previous paragraph was paraphrased from the <a href="https://iribe.umd.edu/#about">home page</a> of the Brendan Iribe Center.
+    </p>
+
+
+    <h2>How many rooms / lecture halls are there in Iribe? </h2>
+
+    <p>
+        The Brendan Iribe center occupies 215,600 sq. ft of space, with 437 total rooms split amongst six different floors. There are 658 different seats available 
+        within the various instructional spaces, with two different auditoriums that can seat 298 and 100 people respectively. Additionally, there are 13 research labs, 
+        4 collaborative classrooms, 2 seminar rooms, as well as both a rooftop park and garden terrace for both students and faculty to enjoy.
+
+        <br><br>
+
+        The previous paragraph references informaiton available on the <a href="https://iribe.umd.edu/#about">Stats and Figures</a> page of the Iribe home page.
+
+        <br>
+        <h2>Contact Our Office</h2>
+        
+        <i class="material-icons">email</i> <a href="mailto:ugrad@cs.umd.edu">ugrad@cs.umd.edu</a> <br>
+        <i class="material-icons">local_phone</i> (301) 405-2662 <br>
+        <i class="material-icons">location_on</i>8125 Paint Branch Dr, College Park, MD 20742 <br>
+        <br>
+        <h2>Hours</h2>
+        Monday: 7AM - 10PM<br>
+        Tuesday: 7AM - 10PM<br>
+        Wednesday: 7AM - 10PM<br>
+        Thursday: 7AM - 10PM<br>
+        Friday: 7AM - 10PM<br>
+        Saturday: CLOSED<br>
+        Sunday: CLOSED<br>
+        <br><br>
+
 </div>

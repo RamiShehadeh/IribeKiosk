@@ -1,10 +1,68 @@
 {
+
+  "2023-04-21":{
+    "title": "Computer Science APT Meeting",
+    "description": "Appointment, Promotion, and Tenure Committee Meeting",
+    "startingtime": "1:30 PM - 3:00 PM",
+    "location": "IRB-4105" 
+  },
+
+  "2023-04-03":{
+    "title": "PhD Defense",
+    "description": "Hao Chen: An efficient neural representation for videos",
+    "startingtime": "5:00 PM - 7:00 PM",
+    "location": "https://talks.cs.umd.edu/talks/3469" 
+  },
+
+  "2023-04-07":{
+    "title": "Assistant Professor Meeting",
+    "description": "Computer Science Assistant Professor Meeting",
+    "startingtime": "12:00 PM - 1:30 PM",
+    "location": "IRB4105" 
+  },
+
+  "2023-04-17":{
+    "title": "PhD Defense",
+    "description": "Mosche Katz: Software Defined Software",
+    "startingtime": "2:00 PM - 4:00 PM",
+    "location": "https://talks.cs.umd.edu/talks/3495" 
+  },
+
+  "2023-04-24":{
+    "title": "MS Defense",
+    "description": "A Pedagogical Approach to Problems in Ramsey Theory",
+    "startingtime": "11:00 AM - 1:00 PM",
+    "location": "IRB4145" 
+  },
+
+  "2023-05-08": {
+    "title": "CMSC216 GSS",
+    "description": "CMSC216 Group Study Session",
+    "startingtime": "3:00 PM - 4:00 PM",
+    "location": "Online (Zoom): https://umd.zoom.us/i/92340681836" 
+  },
+
   "2023-05-10": {
       "title": "VR Lab Showcase",
       "description": "Come check out these cool VR Projects",
       "startingtime": "10:00 AM - 11:30 AM ",
       "location": "IRB2101"
   },
+
+  "2023-05-11": {
+    "title": "CMSC131 GSS",
+    "description": "CMSC131 Group Study Session",
+    "startingtime": "5:00 PM - 6:00 PM",
+    "location": "Online (Zoom): https://umd.zoom.us/i/5392468319" 
+  },
+
+  "2023-05-16": {
+    "title": "PhD Defense",
+    "description": "Data Structures and protocols for Scalability and Security of Distributed Consensus",
+    "startingtime": "2:00 PM - 4:00 PM",
+    "location": "IRB5165 or https://umd.zoom.us/my/shravan" 
+  },
+
   "2023-05-23": {
       "title": "CMNS Commencement",
       "description": "Congratulations to the class of 2023",
@@ -17,5 +75,8 @@
     "startingtime": "1:00 PM - 5:00 PM",
     "location": "IRB1211"
 }
+
+
+
 
 }

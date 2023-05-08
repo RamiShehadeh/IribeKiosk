@@ -339,8 +339,11 @@ html, body {
     width: 950px;
 }
 
-#campusInformation a {
-    color: white;
+#campusInformation a:link {
+    color: gold;
+}
+#campusInformation a:visited {
+    color: red;
 }
 
 /* --- Event Calendar --- */

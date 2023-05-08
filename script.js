@@ -65,8 +65,8 @@ document.addEventListener('DOMContentLoaded', () => {
     $("#alerts").load("tabs/tab0.html");
     $("#building-map").load("tabs/tab1.html");
     $("#campus-map").load("tabs/tab2.html");
-    $("#campus-info").load("tabs/tab3.html");
-    $("#faq").load("tabs/tab5.html");
+    $("#hours").load("tabs/tab3.html");
+    $("#about").load("tabs/tab5.html");
     
 
     // Initialize the calendar

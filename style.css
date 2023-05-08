@@ -447,7 +447,7 @@ html, body {
 /* Weather Widget */
 .weather-time-container{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-wrap: wrap;
 }
 
@@ -493,16 +493,17 @@ h3 {
 /* Time */
 #current-time {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
-    background-color: #24167b;
+    background-color: transparent;
     color: white;
     font-size: 3em;
     font-weight: bold;
     padding: 10px;
     border-radius: 5px;
-    width: 500px;
-    margin: 20px auto;
+    width: 300px;
+    /* margin: 20px auto; */
+   /* left: 100px; */
 }
 /* #current-time {
     font-family: 'Orbitron', sans-serif;

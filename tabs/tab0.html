@@ -1,4 +1,4 @@
-<h1 style="text-align: center;">Welcome to The Brendan Iribe Center!</h1>
+<h1 style="text-align: center; padding-top: 25px; font-size: 40px;">Welcome to The Brendan Iribe Center!</h1>
 
 <!-- Weather & Time -->
 <div class="time-container"> 
@@ -29,90 +29,83 @@
     </div>
 </div>
 
-<div class = "weather-slideshow-container">
-    
-    <div class ="float-child-1">
-        <div class = "weather-social">
-            <div id="weather-widget">
-                <h3>Current Weather</h3>
-                <div class="weather-content">
-                    <div class="weather-icon">
-                        <img id="weather-icon" src="" alt="Weather icon">
-                    </div>
-                    <div class="weather-details">
-                        <p id="location"></p>
-                        <p id="temperature"></p>
-                        <p id="condition"></p>
-                    </div>
+
+<div class="slideshow-container">
+    <div class="slide fade">
+        <img src="../data/slideshow0.jpg">
+    </div>
+    <div class="slide fade">
+        <img src="../data/slideshow1.jpg">
+    </div>
+    <div class="slide fade">
+        <img src="../data/slideshow2.jpg">
+    </div>
+</div>
+
+<div class="dots-container">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+</div>
+
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+var slides = document.getElementsByClassName("slide");
+var dots = document.getElementsByClassName("dot");
+for (var i = 0; i < slides.length; i++) {
+    slides[i].classList.remove("active");
+    dots[i].classList.remove("active");
+}
+slideIndex++;
+if (slideIndex > slides.length) {
+    slideIndex = 1;
+}
+slides[slideIndex-1].classList.add("active");
+dots[slideIndex-1].classList.add("active");
+setTimeout(showSlides, 5000);
+}
+</script>
+
+<div class="weather-alerts-container">
+    <div class = "weather-social">
+        <div id="weather-widget">
+            <h3>Current Weather</h3>
+            <div class="weather-content">
+                <div class="weather-icon">
+                    <img id="weather-icon" src="" alt="Weather icon">
+                </div>
+                <div class="weather-details">
+                    <p id="location"></p>
+                    <p id="temperature"></p>
+                    <p id="condition"></p>
                 </div>
             </div>
         </div>
     </div>
-   
-    <div class ="float-child-2" >
-        <div class="slideshow-container">
-            <div class="slide fade">
-              <img src="../data/slideshow0.jpg">
-            </div>
-            <div class="slide fade">
-              <img src="../data/slideshow1.jpg">
-            </div>
-            <div class="slide fade">
-              <img src="../data/slideshow2.jpg">
-            </div>
+
+    <div class="alerts-container-bottom">
+        <h2 style="text-align: left;">Alerts & Announcements</h2>
+        <div class="alert">
+            <i class="fas fa-exclamation-triangle" style="color: red;"></i>
+            <span> SEVERE WEATHER ALERT: Heavy Rain expected throughout the day.</span>
         </div>
-        
-        <div class="dots-container">
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
+        <div class="notification">
+            <i class="fas fa-info-circle"></i>
+            <span>Room change: CMSC434 has been moved to Room 1104.</span>
         </div>
-        
-        <script>
-        var slideIndex = 0;
-        showSlides();
-    
-        function showSlides() {
-        var slides = document.getElementsByClassName("slide");
-        var dots = document.getElementsByClassName("dot");
-        for (var i = 0; i < slides.length; i++) {
-            slides[i].classList.remove("active");
-            dots[i].classList.remove("active");
-        }
-        slideIndex++;
-        if (slideIndex > slides.length) {
-            slideIndex = 1;
-        }
-        slides[slideIndex-1].classList.add("active");
-        dots[slideIndex-1].classList.add("active");
-        setTimeout(showSlides, 5000);
-        }
-        </script>
+        <div class="notification">
+            <i class="fas fa-info-circle"></i>
+            <span>Room change: CMSC131 has been moved to Room 2107. </span>
+        </div>
+        <div class="notification">
+            <i class="fas fa-info-circle"></i>
+            <span>PSA: Free deodorant is being distributed in Room 4156 </span>
+        </div>
     </div>
 </div>
-
-
-
-<h2 style="text-align: center;">Alerts & Announcements</h2>
 <!-- Alerts -->
-<div class="alert">
-    <i class="fas fa-exclamation-triangle" style="color: red;"></i>
-    <span> SEVERE WEATHER ALERT: Heavy Rain expected throughout the day.</span>
-</div>
-<div class="notification">
-    <i class="fas fa-info-circle"></i>
-    <span>Room change: CMSC434 has been moved to Room 1104.</span>
-</div>
-<div class="notification">
-    <i class="fas fa-info-circle"></i>
-    <span>Room change: CMSC131 has been moved to Room 2107. </span>
-</div>
-<div class="notification">
-    <i class="fas fa-info-circle"></i>
-    <span>PSA: Free deodorant is being distributed in Room 4156 </span>
-</div>
+
 <!-- Add more notifications as needed --> 
-
-
-
-

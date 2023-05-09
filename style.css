@@ -142,12 +142,12 @@ html, body {
 .accessibility-button {
     position: fixed;
     top: 50px;
-    right: 300px;
+    right: 260px;
     background-color: #fff;
     border: 2px solid #000;
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -158,12 +158,12 @@ html, body {
 .volume-button {
     position: fixed;
     top: 50px;
-    right: 370px;
+    right: 330px;
     background-color: #fff;
     border: 2px solid #000;
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -179,12 +179,12 @@ html, body {
 .volume-mute-button {
     position: fixed;
     top: 50px;
-    right: 370px;
+    right: 330px;
     background-color: #af2525;
     border: 2px solid #000;
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     display: none;
     justify-content: center;
     align-items: center;
@@ -599,11 +599,11 @@ h3 {
     /* align-items: center; */
     background-color: transparent;
     color: white;
-    font-size: 3em;
+    font-size: 2.5em;
     font-weight: bold;
     padding: 10px;
     border-radius: 5px;
-    width: 300px;
+    /* width: 300px; */
     /* margin: 20px auto; */
    /* left: 100px; */
 }

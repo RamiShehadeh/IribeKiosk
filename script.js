@@ -1,133 +1,130 @@
 
 document.addEventListener('DOMContentLoaded', () => {
-    const tabButtons = document.querySelectorAll('.tab-button');
-    const homeButton = document.querySelectorAll('.home-button');
-    const tabs = document.querySelectorAll('.tab');
-    // const homeImage = document.getElementById('testudo');
+  const tabButtons = document.querySelectorAll('.tab-button');
+  const homeButton = document.querySelectorAll('.home-button');
+  const tabs = document.querySelectorAll('.tab');
+  // const homeImage = document.getElementById('testudo');
 
-    // // Add a click event listener to the image element and buttons
-    // homeImage.addEventListener('click', function() {
-    //   // play sound
-    //   playButtonClickSound();
-    //   const target = homeImage.getAttribute('data-target');
+  // // Add a click event listener to the image element and buttons
+  // homeImage.addEventListener('click', function() {
+  //   // play sound
+  //   playButtonClickSound();
+  //   const target = homeImage.getAttribute('data-target');
 
-    //   // Deactivate all buttons and tabs
-    //   tabButtons.forEach(btn => btn.classList.remove('active'));
-    //   tabs.forEach(tab => tab.classList.remove('active'));
+  //   // Deactivate all buttons and tabs
+  //   tabButtons.forEach(btn => btn.classList.remove('active'));
+  //   tabs.forEach(tab => tab.classList.remove('active'));
 
-    //   // Activate the clicked button and its corresponding tab
-    //   homeImage.classList.add('active');
-    //   document.getElementById(target).classList.add('active');
-    // });
-  
-    tabButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        // play sound
-        playButtonClickSound();
-        const target = button.getAttribute('data-target');
-  
-        // Deactivate all buttons and tabs
-        // homeImage.classList.remove('active');
-        homeButton.forEach(btn => btn.classList.remove('active'));
-        tabButtons.forEach(btn => btn.classList.remove('active'));
-        tabs.forEach(tab => tab.classList.remove('active'));
-  
-        // Activate the clicked button and its corresponding tab
-        button.classList.add('active');
-        document.getElementById(target).classList.add('active');
-      });
+  //   // Activate the clicked button and its corresponding tab
+  //   homeImage.classList.add('active');
+  //   document.getElementById(target).classList.add('active');
+  // });
+
+  tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // play sound
+      playButtonClickSound();
+      const target = button.getAttribute('data-target');
+
+      // Deactivate all buttons and tabs
+      // homeImage.classList.remove('active');
+      homeButton.forEach(btn => btn.classList.remove('active'));
+      tabButtons.forEach(btn => btn.classList.remove('active'));
+      tabs.forEach(tab => tab.classList.remove('active'));
+
+      // Activate the clicked button and its corresponding tab
+      button.classList.add('active');
+      document.getElementById(target).classList.add('active');
     });
-
-    homeButton.forEach(button => {
-      button.addEventListener('click', () => {
-        // play sound
-        playButtonClickSound();
-        const target = button.getAttribute('data-target');
-  
-        // Deactivate all buttons and tabs
-        // homeImage.classList.remove('active');
-        tabButtons.forEach(btn => btn.classList.remove('active'));
-        tabs.forEach(tab => tab.classList.remove('active'));
-  
-        // Activate the clicked button and its corresponding tab
-        button.classList.add('active');
-        document.getElementById(target).classList.add('active');
-      });
-    });
-  
-    // Set the home active by default
-    //tabButtons[5].click();
-
-    // tabButtons[3].click();
-    homeButton[0].click();
-  
-    // Load the content of each tab from separate HTML files
-    $("#alerts").load("tabs/tab0.html");
-    // $("#building-map").load("tabs/tab1.html");
-    $("#campus-map").load("tabs/tab2.html");
-    // $("#hours").load("tabs/tab3.html");
-    $("#about").load("tabs/tab5.html");
-    $("#alertz").load("tabs/tab6.html");
-    
-
-    // Initialize the calendar
-  //   (async function() {
-  //     const events = await fetchEvents();
-  //     initializeCalendar(events);
-  //     displayUpcomingEvents(events);
-  // })();
-
-  const accessibilityButton = document.querySelector('.accessibility-button');
-  const accessibilityBackButton = document.querySelector('.accessibility-back-button');
-  const accessibilityOptions = document.querySelector('.accessibility-options');
-  const originalMenuButtons = document.querySelectorAll('.vertical-menu-right .tab-button');
-
-  accessibilityButton.addEventListener('click', () => {
-      // Hide the original menu buttons and show the accessibility options
-      originalMenuButtons.forEach(button => button.style.display = 'none');
-      accessibilityButton.style.display = 'none';
-      accessibilityOptions.style.display = 'block';
-      accessibilityBackButton.style.display = 'block';
   });
 
-  accessibilityBackButton.addEventListener('click', () => {
-      // Hide the accessibility options and back button, and show the original menu buttons
-      originalMenuButtons.forEach(button => button.style.display = 'block');
-      accessibilityOptions.style.display = 'none';
-      accessibilityBackButton.style.display = 'none';
-      accessibilityButton.style.display = 'block';
+  homeButton.forEach(button => {
+    button.addEventListener('click', () => {
+      // play sound
+      playButtonClickSound();
+      const target = button.getAttribute('data-target');
+
+      // Deactivate all buttons and tabs
+      // homeImage.classList.remove('active');
+      tabButtons.forEach(btn => btn.classList.remove('active'));
+      tabs.forEach(tab => tab.classList.remove('active'));
+
+      // Activate the clicked button and its corresponding tab
+      button.classList.add('active');
+      document.getElementById(target).classList.add('active');
+    });
   });
 
-  $(document).ready(function() {
-    // When clicking anywhere outside the menu
-    $(document).click(function(event) {
-        if (!$(event.target).closest('.vertical-menu-right').length) {
-            $('.accessibility-options').hide();
-            $('.accessibility-back-button').hide();
-            $('.accessibility-button').show();
-            $('.tab-button').show();
-        }
-    });
+  // Set the home active by default
+  tabButtons[0].click();
 
-    // When switching to another tab
-    $('.tab-button').click(function() {
-        $('.accessibility-options').hide();
-        $('.accessibility-back-button').hide();
-        $('.accessibility-button').show();
-        $('.tab-button').show();
-    });
+  // Load the content of each tab from separate HTML files
+  $("#home").load("tabs/tab0.html");
+  $("#building-map").load("tabs/tab1.html");
+  $("#campus-map").load("tabs/tab2.html");
+  $("#hours").load("tabs/tab3.html");
+  $("#about").load("tabs/tab5.html");
+  $("#alerts").load("tabs/tab6.html");
+  
+
+  // Initialize the calendar
+//   (async function() {
+//     const events = await fetchEvents();
+//     initializeCalendar(events);
+//     displayUpcomingEvents(events);
+// })();
+
+const accessibilityButton = document.querySelector('.accessibility-button');
+const accessibilityBackButton = document.querySelector('.accessibility-back-button');
+const accessibilityOptions = document.querySelector('.accessibility-options');
+const originalMenuButtons = document.querySelectorAll('.vertical-menu-right .tab-button');
+
+accessibilityButton.addEventListener('click', () => {
+    // Hide the original menu buttons and show the accessibility options
+    originalMenuButtons.forEach(button => button.style.display = 'none');
+    accessibilityButton.style.display = 'none';
+    accessibilityOptions.style.display = 'block';
+    accessibilityBackButton.style.display = 'block';
 });
 
-  // Load the content of the alert/notification bar from tab0.html
-  document.querySelector(".alerts-container").innerHTML = document.querySelector("#tab0-template .alert, #tab0-template .notification").innerHTML;
+accessibilityBackButton.addEventListener('click', () => {
+    // Hide the accessibility options and back button, and show the original menu buttons
+    originalMenuButtons.forEach(button => button.style.display = 'block');
+    accessibilityOptions.style.display = 'none';
+    accessibilityBackButton.style.display = 'none';
+    accessibilityButton.style.display = 'block';
+});
+
+$(document).ready(function() {
+  // When clicking anywhere outside the menu
+  $(document).click(function(event) {
+      if (!$(event.target).closest('.vertical-menu-right').length) {
+          $('.accessibility-options').hide();
+          $('.accessibility-back-button').hide();
+          $('.accessibility-button').show();
+          $('.tab-button').show();
+      }
+  });
+
+  // When switching to another tab
+  $('.tab-button').click(function() {
+      $('.accessibility-options').hide();
+      $('.accessibility-back-button').hide();
+      $('.accessibility-button').show();
+      $('.tab-button').show();
+  });
+});
+
+// Load the content of the alert/notification bar from tab0.html
+document.querySelector(".alerts-container").innerHTML = document.querySelector("#tab0-template .alert, #tab0-template .notification").innerHTML;
 
 });
 
 // Play sound when button pressed
 function playButtonClickSound() {
-  const sound = document.getElementById('button-click-sound');
-  sound.currentTime = 0;
-  sound.play();
+const sound = document.getElementById('button-click-sound');
+sound.currentTime = 0;
+sound.play();
 }
 
 // function initializeCalendar(events) {
@@ -189,362 +186,132 @@ function playButtonClickSound() {
 // }
 
 function initializeCalendar(events) {
-  const calendarEl = document.getElementById('calendar');
-  const calendar = new FullCalendar.Calendar(calendarEl, {
-    plugins: ['interaction', 'dayGrid', 'timeGrid'],
-    events: events,
-    header: {
-      left: 'prev,next today',
-      center: 'title',
-      right: 'dayGridMonth,timeGridWeek,timeGridDay'
-    },
-    defaultView: 'dayGridMonth',
-    eventClick: function (info) {
-      const calEvent = info.event;
-      const jsEvent = info.jsEvent;
+const calendarEl = document.getElementById('calendar');
+const calendar = new FullCalendar.Calendar(calendarEl, {
+  plugins: ['interaction', 'dayGrid', 'timeGrid'],
+  events: events,
+  header: {
+    left: 'prev,next today',
+    center: 'title',
+    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+  },
+  defaultView: 'dayGridMonth',
+  eventClick: function (info) {
+    const calEvent = info.event;
+    const jsEvent = info.jsEvent;
 
-      closeEventBubble();
+    closeEventBubble();
 
-      const bubble = document.createElement('div');
-      bubble.classList.add('event-bubble');
-      bubble.innerHTML = `
-          <div class="event-bubble-header">
-              <h3>${calEvent.title}</h3>
-              <button class="event-bubble-close">&times;</button>
-          </div>
-          <p> ${calEvent.extendedProps.description} </p>
-          <p>Location: ${calEvent.extendedProps.location} </p>
-          <p>Start: ${calEvent.start.toLocaleString()}</p>
-          <p>End: ${calEvent.end.toLocaleString()}</p>
-      `;
-      document.body.appendChild(bubble);
+    const bubble = document.createElement('div');
+    bubble.classList.add('event-bubble');
+    bubble.innerHTML = `
+        <div class="event-bubble-header">
+            <h3>${calEvent.title}</h3>
+            <button class="event-bubble-close">&times;</button>
+        </div>
+        <p> ${calEvent.extendedProps.description} </p>
+        <p>Location: ${calEvent.extendedProps.location} </p>
+        <p>Start: ${calEvent.start.toLocaleString()}</p>
+        <p>End: ${calEvent.end.toLocaleString()}</p>
+    `;
+    document.body.appendChild(bubble);
 
-      // Calculate the position of the event bubble
-      var bubbleWidth = bubble.offsetWidth;
-      var bubbleHeight = bubble.offsetHeight;
+    // Calculate the position of the event bubble
+    var bubbleWidth = bubble.offsetWidth;
+    var bubbleHeight = bubble.offsetHeight;
 
-      var windowWidth = window.innerWidth;
-      var windowHeight = window.innerHeight;
+    var windowWidth = window.innerWidth;
+    var windowHeight = window.innerHeight;
 
-      var clickX = jsEvent.pageX;
-      var clickY = jsEvent.pageY;
+    var clickX = jsEvent.pageX;
+    var clickY = jsEvent.pageY;
 
-      var posX = clickX + 20;
-      var posY = clickY - 10;
+    var posX = clickX + 20;
+    var posY = clickY - 10;
 
-      // Check if the bubble goes out of bounds horizontally
-      if (posX + bubbleWidth > windowWidth) {
-        posX = clickX - bubbleWidth - 20;
-      }
-
-      // Check if the bubble goes out of bounds vertically
-      if (posY + bubbleHeight > windowHeight) {
-        posY = clickY - bubbleHeight - 20;
-      }
-
-      bubble.style.left = posX + 'px';
-      bubble.style.top = posY + 'px';
-
-      const closeButton = bubble.querySelector('.event-bubble-close');
-      closeButton.addEventListener('click', closeEventBubble);
+    // Check if the bubble goes out of bounds horizontally
+    if (posX + bubbleWidth > windowWidth) {
+      posX = clickX - bubbleWidth - 20;
     }
-  });
-  calendar.render();
+
+    // Check if the bubble goes out of bounds vertically
+    if (posY + bubbleHeight > windowHeight) {
+      posY = clickY - bubbleHeight - 20;
+    }
+
+    bubble.style.left = posX + 'px';
+    bubble.style.top = posY + 'px';
+
+    const closeButton = bubble.querySelector('.event-bubble-close');
+    closeButton.addEventListener('click', closeEventBubble);
+  }
+});
+calendar.render();
 }
 
 
 /* display upcoming events (events within next month) */
 function displayUpcomingEvents(events) {
-  const today = new Date();
-  const nextMonth = new Date(today);
-  nextMonth.setMonth(nextMonth.getMonth() + 1);
+const today = new Date();
+const nextMonth = new Date(today);
+nextMonth.setMonth(nextMonth.getMonth() + 1);
 
-  const upcomingEvents = events.filter(event => {
-    const eventDate = new Date(event.start);
-    return eventDate >= today && eventDate <= nextMonth;
-  });
+const upcomingEvents = events.filter(event => {
+  const eventDate = new Date(event.start);
+  return eventDate >= today && eventDate <= nextMonth;
+});
 
-  const list = document.createElement('ul');
-  upcomingEvents.forEach(event => {
-    const eventDate = new Date(event.start);
-    const formattedDate = eventDate.toLocaleDateString();
-    const listItem = document.createElement('li');
-    listItem.textContent = `${event.title} - ${formattedDate}`;
-    list.appendChild(listItem);
-  });
+const list = document.createElement('ul');
+upcomingEvents.forEach(event => {
+  const eventDate = new Date(event.start);
+  const formattedDate = eventDate.toLocaleDateString();
+  const listItem = document.createElement('li');
+  listItem.textContent = `${event.title} - ${formattedDate}`;
+  list.appendChild(listItem);
+});
 
-  document.getElementById('upcoming-events').appendChild(list);
+document.getElementById('upcoming-events').appendChild(list);
 }
 
 
 
 /* Close event bubble for event calendar */
 function closeEventBubble() {
-  const eventBubble = document.querySelector('.event-bubble');
-  if (eventBubble) {
-    eventBubble.remove();
-  }
+const eventBubble = document.querySelector('.event-bubble');
+if (eventBubble) {
+  eventBubble.remove();
+}
 }
 
 // fetch events from JSON file 'events.JSON'
 function fetchEvents() {
-  return fetch('events.json')
-    .then(response => response.json())
-    .then(events => {
-      return events;
-    })
-    .catch(error => {
-      console.error('Error fetching events:', error);
-      return [];
-    });
+return fetch('events.json')
+  .then(response => response.json())
+  .then(events => {
+    return events;
+  })
+  .catch(error => {
+    console.error('Error fetching events:', error);
+    return [];
+  });
 }
 
 // Load the content of the alert/notification bar from tab0.html
 $(".alerts-container").load("tab0.html .alert, .notification", function() {
-  // Initialize the scrolling functionality for the alert/notification bar
-  const alertBarContent = $(".alerts-container").html();
-  $(".alerts-container").html(alertBarContent + " " + alertBarContent);
+// Initialize the scrolling functionality for the alert/notification bar
+const alertBarContent = $(".alerts-container").html();
+$(".alerts-container").html(alertBarContent + " " + alertBarContent);
 
-  const scrollAlerts = () => {
-    $(".alerts-container").animate(
-      { scrollLeft: $(".alerts-container").scrollLeft() + 1 },
-      30,
-      "linear",
-      scrollAlerts
-    );
-  };
-
-  scrollAlerts();
-});
-
-
-
-
-
-
-//eddy stuff
-
-
-
-
-
-
-function myFunction() {
-  // Declare variables
-  var input, filter, ul, li, a, i, txtValue;
-  input = document.getElementById('myInput');
-  filter = input.value.toUpperCase();
-  ul = document.getElementById("myUL");
-  li = ul.getElementsByTagName('li');
-
-  // Loop through all list items, and hide those who don't match the search query
-  for (i = 0; i < li.length; i++) {
-    a = li[i].getElementsByTagName("a")[0];
-    txtValue = a.textContent || a.innerText;
-    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-      li[i].style.display = "";
-    } else {
-      li[i].style.display = "none";
-    }
-  }
-}
-
-  function favTutorial() {
-    var mylist = document.getElementById("myList");
-    document.getElementById("favourite").value = mylist.options[mylist.selectedIndex].text;
-  }
-
-  function openForm() {
-document.getElementById("myForm").style.display = "block";
-}
-
-function closeForm() {
-document.getElementById("myForm").style.display = "none";
-}
-
-/*keeb*/
-const Keyboard = {
-  elements: {
-  main: null,
-  keysContainer: null,
-  keys: []
-},
-
-eventHandlers: {
-  oninput: null,
-  onclose: null
-},
-
-properties: {
-  value: "",
-  capsLock: false
-},
-
-
-init() {
-  // Create main elements
-  this.elements.main = document.createElement("div");
-  this.elements.keysContainer = document.createElement("div");
-
-  // Setup main elements
-  this.elements.main.classList.add("keyboard", "keyboard--hidden");
-  this.elements.keysContainer.classList.add("keyboard__keys");
-  this.elements.keysContainer.appendChild(this._createKeys());
-
-  this.elements.keys = this.elements.keysContainer.querySelectorAll(".keyboard__key");
-
-  // Add to DOM
-  this.elements.main.appendChild(this.elements.keysContainer);
-  document.body.appendChild(this.elements.main);
-
-  // Automatically use keyboard for elements with .use-keyboard-input
-  document.querySelectorAll(".use-keyboard-input").forEach(element => {
-      element.addEventListener("focus", () => {
-          this.open(element.value, currentValue => {
-              element.value = currentValue;
-          });
-      });
-  });
-},
-
-
-_createKeys() {
-  const fragment = document.createDocumentFragment();
-  const keyLayout = [
-  "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "backspace",
-  "q", "w", "e", "r", "t", "y", "u", "i", "o", "p",
-  "caps", "a", "s", "d", "f", "g", "h", "j", "k", "l", "enter",
-  "done", "z", "x", "c", "v", "b", "n", "m", ",", ".", "?",
-  "space"
-];
-
-// Creates HTML for an icon
-const createIconHTML = (icon_name) => {
-return `<i class="material-icons">${icon_name}</i>`;
+const scrollAlerts = () => {
+  $(".alerts-container").animate(
+    { scrollLeft: $(".alerts-container").scrollLeft() + 1 },
+    30,
+    "linear",
+    scrollAlerts
+  );
 };
 
-keyLayout.forEach(key => {
-const keyElement = document.createElement("button");
-const insertLineBreak = ["backspace", "p", "enter", "?"].indexOf(key) !== -1;
-
-// Add attributes/classes
-keyElement.setAttribute("type", "button");
-keyElement.classList.add("keyboard__key");
-
-switch (key) {
-case "backspace":
-keyElement.classList.add("keyboard__key--wide");
-keyElement.innerHTML = createIconHTML("backspace");
-
-keyElement.addEventListener("click", () => {
-    this.properties.value = this.properties.value.substring(0, this.properties.value.length - 1);
-    this._triggerEvent("oninput");
+scrollAlerts();
 });
-
-break;
-
-case "caps":
-keyElement.classList.add("keyboard__key--wide", "keyboard__key--activatable");
-keyElement.innerHTML = createIconHTML("keyboard_capslock");
-
-keyElement.addEventListener("click", () => {
-    this._toggleCapsLock();
-    keyElement.classList.toggle("keyboard__key--active", this.properties.capsLock);
-});
-
-break;
-
-case "enter":
-keyElement.classList.add("keyboard__key--wide");
-keyElement.innerHTML = createIconHTML("keyboard_return");
-
-keyElement.addEventListener("click", () => {
-    this.properties.value += "\n";
-    this._triggerEvent("oninput");
-});
-
-break;
-
-case "space":
-keyElement.classList.add("keyboard__key--extra-wide");
-keyElement.innerHTML = createIconHTML("space_bar");
-
-keyElement.addEventListener("click", () => {
-    this.properties.value += " ";
-    this._triggerEvent("oninput");
-});
-
-break;
-
-case "done":
-keyElement.classList.add("keyboard__key--wide", "keyboard__key--dark");
-keyElement.innerHTML = createIconHTML("check_circle");
-
-keyElement.addEventListener("click", () => {
-    this.close();
-    this._triggerEvent("onclose");
-});
-
-break;
-
-default:
-keyElement.textContent = key.toLowerCase();
-
-keyElement.addEventListener("click", () => {
-    this.properties.value += this.properties.capsLock ? key.toUpperCase() : key.toLowerCase();
-    this._triggerEvent("oninput");
-});
-
-break;
-}
-
-fragment.appendChild(keyElement);
-
-if (insertLineBreak) {
-fragment.appendChild(document.createElement("br"));
-}
-});
-
-return fragment;
-},
-
-_triggerEvent(handlerName) {
-if (typeof this.eventHandlers[handlerName] == "function") {
-this.eventHandlers[handlerName](this.properties.value);
-}
-},
-
-_toggleCapsLock() {
-this.properties.capsLock = !this.properties.capsLock;
-
-for (const key of this.elements.keys) {
-if (key.childElementCount === 0) {
-key.textContent = this.properties.capsLock ? key.textContent.toUpperCase() : key.textContent.toLowerCase();
-}
-}
-},
-
-open(initialValue, oninput, onclose) {
-this.properties.value = initialValue || "";
-this.eventHandlers.oninput = oninput;
-this.eventHandlers.onclose = onclose;
-this.elements.main.classList.remove("keyboard--hidden");
-},
-
-close() {
-this.properties.value = "";
-this.eventHandlers.oninput = oninput;
-this.eventHandlers.onclose = onclose;
-this.elements.main.classList.add("keyboard--hidden");
-}
-};
-
-window.addEventListener("DOMContentLoaded", function () {
-Keyboard.init();
-});
-
-
-
-
 
 

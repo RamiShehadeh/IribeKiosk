@@ -71,7 +71,7 @@
             <div class="tab" id="campus-map"></div>
             <div class="tab" id="hours"></div>
             <div class="tab" id="event-calendar" style="height: 95%;">
-                <iframe src="tabs/event-calendar.html"  frameborder="0" style="width: 98%; height: 100%; transform: scale(1); transform-origin: top left;"></iframe>
+                <iframe src="tabs/event-calendar.html"  frameborder="0" style="width: 99%; height: 100%; transform: scale(1); transform-origin: top left;"></iframe>
             </div>
             <div class="tab" id="about"> </div>
 
@@ -84,21 +84,32 @@
                         <i class="fas fa-arrow-left"></i>
                     </button>
                     <button class="accessibility-button">
-                        <i class="fas fa-wheelchair"></i>
+                        <i class="fas fa-wheelchair fa-bounce" ></i>
                     </button>
+                    <button class="volume-button">
+                        <i class="fas fa-volume-high" ></i>
+                    </button>
+                    <button class="volume-mute-button">
+                        <i class="fas fa-volume-mute" ></i>
+                    </button>    
                 </div>
-                <div class="accessibility-options" tabindex="-1">
-                    <!-- <h3> accessibility options</h3> -->
-                    <button class="option-button">
-                        <i class="fas fa-search-plus"></i> Zoom In
-                    </button>
-                    <button class="option-button">
-                        <i class="fas fa-search-minus"></i> Zoom Out
-                    </button>
-                    <button class="option-button">
-                        <i class="fas fa-low-vision"></i> Color Blind Mode
-                    </button>
-                    <!-- Add more accessibility options as needed -->
+
+                <div class="accessibility-options" id = "access-options">
+                    <div class="accessibility-options-content">
+                        <span class="close">&times;</span>
+                        <h2 style="text-align: center;">Accessibility Options</h2>
+                        <!-- <h3> accessibility options</h3> -->
+                        <button class="option-button">
+                            <i class="fas fa-search-plus"></i> Zoom In
+                        </button>
+                        <button class="option-button">
+                            <i class="fas fa-search-minus"></i> Zoom Out
+                        </button>
+                        <button class="option-button">
+                            <i class="fas fa-low-vision"></i> Color Blind Mode
+                        </button>
+                        <!-- Add more accessibility options as needed -->
+                    </div>
                 </div>
             </div>
             

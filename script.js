@@ -61,9 +61,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Load the content of each tab from separate HTML files
   $("#home").load("tabs/tab0.html");
-  $("#building-map").load("tabs/tab1.html");
+  // $("#building-map").load("tabs/tab1.html");
   $("#campus-map").load("tabs/tab2.html");
-  $("#hours").load("tabs/tab3.html");
+  // $("#hours").load("tabs/tab3.html");
   $("#about").load("tabs/tab5.html");
   $("#alerts").load("tabs/tab6.html");
   

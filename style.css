@@ -260,6 +260,11 @@ html, body {
     color: #fff;
     cursor: pointer;
 }
+/* color blind mode */
+.grayscale {
+    filter: grayscale(100%);
+  }
+  
 
 
 .option-button {

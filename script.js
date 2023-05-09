@@ -97,21 +97,11 @@ volumeMuteButton.addEventListener('click', () => {
 
 })
 
-// accessibilityButton.addEventListener('click', () => {
-//     // Hide the original menu buttons and show the accessibility options
-//     originalMenuButtons.forEach(button => button.style.display = 'none');
-//     accessibilityButton.style.display = 'none';
-//     accessibilityOptions.style.display = 'block';
-//     accessibilityBackButton.style.display = 'block';
-// });
-
-// accessibilityBackButton.addEventListener('click', () => {
-//     // Hide the accessibility options and back button, and show the original menu buttons
-//     originalMenuButtons.forEach(button => button.style.display = 'block');
-//     accessibilityOptions.style.display = 'none';
-//     accessibilityBackButton.style.display = 'none';
-//     accessibilityButton.style.display = 'block';
-// });
+  // color blind mode
+  document.getElementById('toggle-grayscale').addEventListener('click', function() {
+    document.body.classList.toggle('grayscale');
+  });
+  
   var accmenu = document.getElementById("access-options");
   const accessibilityButton = document.querySelector('.accessibility-button')
 

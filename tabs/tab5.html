@@ -1,62 +1,144 @@
 <h1 style="text-align: center;">About Iribe</h1>
 
+<body>
+    <main>
+        <section class="tab5-container">
+            <div class="one">
+                <h2 class="question">About UMD</h2>
+                <div class="body">
+                    <p>The University of Maryland, College Park is the state's flagship university and one of the nation's preeminent public research universities.
+                        A global leader in research, entrepreneurship and innovation, the university is home to more than 40,700 students, 14,000 faculty and staff, 
+                        and nearly 400,000 alumni all dedicated to the pursuit of Fearless Ideas. Located just outside Washington, D.C., UMD students and faculty alike strive
+                        to discover and share new knowledge every day through our renowned research enterprise and programs in academics, the arts and athletics.</p>
+                </div>
+            </div>
+            <hr class="hr-line">
+
+            <div class="two">
+                <h2 class="question">What is The Brendan Iribe Center?</h2>
+                <div class="body">
+                    <p>The Brendan Iribe Center for Computer Science and Engineering is the home of UMD's top-ranked Department of Computer Science
+                        and renowned Institute for Advanced Computer Studies (UMIACS). This building includes six different floors with spaces  
+                        specifically designed for both classroom instruction as well as labs supporting groundbreaking research in virtual reality, artificial intelligence, robotics, 
+                        computer vision, algorithms, programming languages, and systems. Having opened in April of 2019, the Iribe Center has already become a beacon for 
+                        technological progress in Maryland and is well on track to serve as an even greater hub for both innovation and economic development nationwide.</p>
+                </div>
+            </div>
+            <hr class="hr-line">
+
+            <div class="three">
+                <h2 class="question">How many rooms / lecture halls are there in Iribe?</h2>
+                <div class="body">
+                    <p>The Brendan Iribe center occupies 215,600 sq. ft of space, with 437 total rooms split amongst six different floors. There are 658 different seats available 
+                        within the various instructional spaces, with two different auditoriums that can seat 298 and 100 people respectively. Additionally, there are 13 research labs, 
+                        4 collaborative classrooms, 2 seminar rooms, as well as both a rooftop park and garden terrace for both students and faculty to enjoy.</p>
+                </div>
+            </div>
+            <hr class="hr-line">
+
+            <div class="four">
+                <h2 class="question">What are the hours of Iribe?</h2>
+                <div class="body">
+                    <p>Monday: 7AM - 10PM<br>
+                        Tuesday: 7AM - 10PM<br>
+                        Wednesday: 7AM - 10PM<br>
+                        Thursday: 7AM - 10PM<br>
+                        Friday: 7AM - 10PM<br>
+                        Saturday: CLOSED<br>
+                        Sunday: CLOSED<br>
+                    </p>
+                </div>
+            </div>
+            <hr class="hr-line">
+
+            <div>
+                <h2 class="question">How do I contact the office?</h2>
+                <div class="body">
+                    <p><i class="material-icons">email</i> ugrad@cs.umd.edu<br>
+                        <i class="material-icons">local_phone</i> (301) 405-2662 <br>
+                        <i class="material-icons">location_on</i>8125 Paint Branch Dr, College Park, MD 20742 <br>
+                    </p>
+                </div>
+            </div>
+            <hr class="hr-line">
+
+
+        </section>
+    </main>
+</body>
+
 <style>
-    h2 {
-        text-align: left;
+    .tab5-container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
     }
 
-    .contents {
-        white-space: pre-wrap;
-        word-wrap: break-word;
-        margin-right: 20px;
-        margin-left: 20px;
-        
+    .hr-line {
+        width: 60%;
+        margin: auto;
     }
+
+    .question {
+        color: white;
+        cursor: pointer;
+        padding: 30px 20px;
+        width: 60%;
+        border: none;
+        outline: none;
+        transition: 0.4s;
+        margin: auto;
+    }
+
+    .body {
+        margin: auto;
+        width: 50%;
+        padding: auto;
+    }
+
+    .active,
+    .question:hover {
+        color: white;
+    }
+
+    .body {
+        padding: 0 18px;
+        
+        display: none;
+        overflow: hidden;
+    }
+    .question:after {
+        content: '\02795';
+        /* Unicode character for "plus" sign (+) */
+        font-size: 13px;
+        color: white;
+        
+        float: right;
+        margin-left: 5px;
+    }
+
+    .active:after {
+        content: "\2796";
+    }
+
 </style>
 
-<div id="campusInformation"> 
-    <h2>About UMD</h2>
-    <p>
-        The University of Maryland, College Park is the state's flagship university and one of the nation's preeminent public research universities.
-        A global leader in research, entrepreneurship and innovation, the university is home to more than 40,700 students, 14,000 faculty and staff, 
-        and nearly 400,000 alumni all dedicated to the pursuit of Fearless Ideas. Located just outside Washington, D.C., UMD students and faculty alike strive
-        to discover and share new knowledge every day through our renowned research enterprise and programs in academics, the arts and athletics. 
-        <br>
-    </p>
+<script>
+    var faq = document.getElementsByClassName("question");
+    var i;
+    for (i = 0; i < faq.length; i++) {
+        faq[i].addEventListener("click", function () {
+            /* Toggle between adding and removing the "active" class,
+            to highlight the button that controls the panel */
+            this.classList.toggle("active");
+            /* Toggle between hiding and showing the active panel */
+            var body = this.nextElementSibling;
+            if (body.style.display === "block") {
+                body.style.display = "none";
+            } else {
+                body.style.display = "block";
+            }
+        });
+    }
+</script>
 
-    <h2>What is The Brendan Iribe Center?</h2>
-    <p> 
-        The Brendan Iribe Center for Computer Science and Engineering is the home of UMD's top-ranked Department of Computer Science
-        and renowned Institute for Advanced Computer Studies (UMIACS). This building includes six different floors with spaces  
-        specifically designed for both classroom instruction as well as labs supporting groundbreaking research in virtual reality, artificial intelligence, robotics, 
-        computer vision, algorithms, programming languages, and systems. Having opened in April of 2019, the Iribe Center has already become a beacon for 
-        technological progress in Maryland and is well on track to serve as an even greater hub for both innovation and economic development nationwide. 
-        <br><br>
-    </p>
-
-
-    <h2>How many rooms / lecture halls are there in Iribe? </h2>
-
-    <p>
-        The Brendan Iribe center occupies 215,600 sq. ft of space, with 437 total rooms split amongst six different floors. There are 658 different seats available 
-        within the various instructional spaces, with two different auditoriums that can seat 298 and 100 people respectively. Additionally, there are 13 research labs, 
-        4 collaborative classrooms, 2 seminar rooms, as well as both a rooftop park and garden terrace for both students and faculty to enjoy.
-
-        <br> <br>
-        <h2>Contact Our Office</h2>
-        
-        <i class="material-icons">email</i> ugrad@cs.umd.edu<br>
-        <i class="material-icons">local_phone</i> (301) 405-2662 <br>
-        <i class="material-icons">location_on</i>8125 Paint Branch Dr, College Park, MD 20742 <br>
-
-        <h2>Hours</h2>
-        Monday: 7AM - 10PM<br>
-        Tuesday: 7AM - 10PM<br>
-        Wednesday: 7AM - 10PM<br>
-        Thursday: 7AM - 10PM<br>
-        Friday: 7AM - 10PM<br>
-        Saturday: CLOSED<br>
-        Sunday: CLOSED<br>
-        <br><br>
-
-</div>

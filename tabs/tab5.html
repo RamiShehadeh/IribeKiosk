@@ -96,6 +96,7 @@
         padding: auto;
     }
 
+    /* .active, */
     .question:hover {
         color: white;
     }
@@ -107,17 +108,20 @@
         overflow: hidden;
     }
     .question:after {
-        content: '\02795';
+        /* content: '\02795'; */
+        content: '+';
         /* Unicode character for "plus" sign (+) */
-        font-size: 13px;
+        font-size: 20px;
         color: white;
         
         float: right;
         margin-left: 5px;
     }
 
-    .questiion:after {
-        content: "\2796";
+    /* .active:after { */
+    .question.active:after {
+        content: '––';
+        font-size: 20px;
     }
 
 </style>

@@ -58,9 +58,11 @@
             document.querySelector('.map-header').style.display = 'none';
             document.querySelector('.map-fullscreen').style.right ='5.3%';
             document.querySelector('.map-fullscreen').style.top ='39%';
+            document.getElementById("map-fullscreen").innerHTML = '<i class="fa-solid fa-compress"></i>'
             document.querySelector('#campusmap').style.height = '618px';
             document.querySelector('.errything').style.marginTop = '32px';
             document.querySelector('#legend').style.width = '15%';
+
 
             
         } else { // exit fullscreen
@@ -69,6 +71,7 @@
             document.querySelector('.map-header').style.display = 'block';
             document.querySelector('.map-fullscreen').style.right ='7.5%';
             document.querySelector('.map-fullscreen').style.top ='45%';
+            document.getElementById("map-fullscreen").innerHTML = '<i class="fa-solid fa-expand"></i>'
             document.querySelector('#campusmap').style.height = '550px';
             document.querySelector('#legend').style.width = '20%';
 

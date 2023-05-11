@@ -1,8 +1,13 @@
-<h1 style="text-align: center; top: -20px;"> Campus Map </h2>
-    
+<h1 class = 'map-header' style="text-align: center; top: -20px;"> Campus Map </h2>
+<div class = "errything"> 
+<div class="search-campus">
+    <input type="text" placeholder="Search the UMD Campus..." style="font-size: 24px;">
+    <button type="submit"><i class="fa fa-search"></i></button>
+</div>    
 <div class = "map-leg"> 
 
 <script type='text/javascript'>
+    var isFullscreen = false;
 
     function GetMap() {   
         // Set the coordinates for the University of Maryland, College Park campus.
@@ -16,7 +21,9 @@
             zoom: 16,
             minZoom: 15,
             maxZoom: 19,
-            maxBounds: bounds
+            maxBounds: bounds,
+            showMapTypeSelector: false
+
         });
         addPushpinsFromJSON(map);
     }
@@ -43,7 +50,36 @@
             });
             });
     }
+
+    function toggleFullscreen() {
+        if (!isFullscreen) { // enter fullscreen
+            document.querySelector('.vertical-menu-left').style.display = 'none';
+            document.querySelector('.vertical-menu-right').style.display = 'none';
+            document.querySelector('.map-header').style.display = 'none';
+            document.querySelector('.map-fullscreen').style.right ='5.3%';
+            document.querySelector('.map-fullscreen').style.top ='39%';
+            document.querySelector('#campusmap').style.height = '618px';
+            document.querySelector('.errything').style.marginTop = '32px';
+            document.querySelector('#legend').style.width = '15%';
+
+            
+        } else { // exit fullscreen
+            document.querySelector('.vertical-menu-left').style.display = 'flex';
+            document.querySelector('.vertical-menu-right').style.display = 'flex';
+            document.querySelector('.map-header').style.display = 'block';
+            document.querySelector('.map-fullscreen').style.right ='7.5%';
+            document.querySelector('.map-fullscreen').style.top ='45%';
+            document.querySelector('#campusmap').style.height = '550px';
+            document.querySelector('#legend').style.width = '20%';
+
+        }
+        isFullscreen = !isFullscreen;
+    }
+
+    document.querySelector('#map-fullscreen').addEventListener('click', toggleFullscreen);
     </script>
-<div id = "campusmap"></div> 
-<img id = "legend" src="../data/Campus Map Legend.png" style="size: 70%;">
+<div id = "campusmap" class = 'campusmap'></div> 
+<button class="map-fullscreen" id = "map-fullscreen"><i class="fa-solid fa-expand"></i> </button>
+<img id = "legend" src="../data/imageedit_5_3825634526.gif" style="size: 70%;">
+</div>
 </div>

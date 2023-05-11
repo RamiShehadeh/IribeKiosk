@@ -450,17 +450,17 @@ html, body {
 /* --- Campus Map --- */
 #campus-map {
     padding-right: 40px;
-    padding-top: 0px;
-    padding-bottom: 0px; 
     /* padding-top: 0px; */
-    height: 90%;
+    /* padding-bottom: 0px;  */
+    /* padding-top: 0px; */
+     /* height: 90%;  */
     
 }
 #campusmap {
     position: relative;
     border: 1px solid black;
-    width: 80%;
-    height: 680px;
+    width: 85%;
+    height: 550px;
     padding: 25px;
     /* top: -12px; */
     margin-bottom: 30px;
@@ -468,14 +468,74 @@ html, body {
 
 }
 #legend {
+    position: absolute;
     width: 20%;
-    height: 300px;
+    height: 280px;
+    right: 5%;
+    bottom: 12%;
+    opacity: 0.7;
     /* size: 50%; */
 }
 .map-leg{
     display:flex;
     justify-content: space-between;
 }
+.map-fullscreen {
+    position: absolute;
+    background-color: #fff;
+    border: 2px solid #000;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: #000;
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.5);
+    right: 7.5%;
+    top:44%;
+    opacity: 0.7;
+}
+.map-fullscreen:hover {
+    cursor: pointer;
+    color:white;
+    background-color: #000;
+    opacity: 1;
+}
+
+.search-campus {
+    display: flex;
+    align-items: center;
+    width: 99%;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    /* margin-top: 20px !important; */
+    padding: 5px;
+  }
+  
+  .search-campus input[type=text] {
+    flex-grow: 1;
+    border: none;
+    font-size: 16px;
+    padding: 10px;
+    background-color: #f2f2f2;
+  }
+  
+  .search-campus button[type=submit] {
+    border: none;
+    background-color: #f2f2f2;
+    font-size: 16px;
+    color: #666;
+    cursor: pointer;
+    padding: 10px;
+  }
+  
+  .search-campus button[type=submit]:hover {
+    color: #000;
+  }
+  
 
 /* --- Information About Campus --- */
 

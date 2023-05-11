@@ -709,10 +709,13 @@ h3 {
   .slide.active {
     opacity: 1;
   }
+
+
+  /*dots of the slideshow image*/
   
   .dots-container {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 10px;
   }
   
   .dot {
@@ -729,34 +732,34 @@ h3 {
     background-color: white;
   }
 
-  /* This will change the scrollbar for the entire page */
-body::-webkit-scrollbar {
-    width: 2em; /* Wider for touchscreen use */
-}
+    /* This will change the scrollbar for the entire page */
+    body::-webkit-scrollbar {
+        width: 2em; /* Wider for touchscreen use */
+    }
 
-body::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    background-color: #000; /* Black track */
-}
+    body::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        background-color: #000; /* Black track */
+    }
 
-body::-webkit-scrollbar-thumb {
-    background-color: #ffd700; /* Gold thumb */
-    border-radius: 10px; /* Rounded corners can look better for touch */
-    border: 2px solid #000; /* Black border around the thumb */
-}
+    body::-webkit-scrollbar-thumb {
+        background-color: #ffd700; /* Gold thumb */
+        border-radius: 10px; /* Rounded corners can look better for touch */
+        border: 2px solid #000; /* Black border around the thumb */
+    }
 
-/* for tab content */
-.tab-content::-webkit-scrollbar {
-    width: 2em; /* Wider for touchscreen use */
-}
+    /* for tab content */
+    .tab-content::-webkit-scrollbar {
+        width: 2em; /* Wider for touchscreen use */
+    }
 
-.tab-content::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    background-color: #000; /* Black track */
-}
+    .tab-content::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        background-color: #000; /* Black track */
+    }
 
-.tab-content::-webkit-scrollbar-thumb {
-    background-color: #ffd700; /* Gold thumb */
-    border-radius: 10px; /* Rounded corners can look better for touch */
-    border: 2px solid #000; /* Black border around the thumb */
-}
+    .tab-content::-webkit-scrollbar-thumb {
+        background-color: #ffd700; /* Gold thumb */
+        border-radius: 10px; /* Rounded corners can look better for touch */
+        border: 2px solid #000; /* Black border around the thumb */
+    }

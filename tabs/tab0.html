@@ -1,4 +1,5 @@
 <h1 style="text-align: center; padding-top: 25px; font-size: 40px;">Welcome to The Brendan Iribe Center!</h1>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 <!-- Weather & Time -->
 <div class="time-container"> 
@@ -40,43 +41,40 @@
     <div class="slide fade">
         <img src="../data/slideshow2.jpg">
     </div>
-    <button class="w3-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-    <button class="w3-button w3-display-right" onclick="plusDivs(+1)">&#10095;</button>
 </div>
 
 <div class="dots-container">
+    <button class="arrow-button" style="margin-right: 50px" onclick="plusSlide(-1)">&#10094;</button>
     <span class="dot active"></span>
     <span class="dot"></span>
     <span class="dot"></span>
+    <button class="arrow-button" style="margin-left: 50px" onclick="plusSlide(+1)">&#10095;</button>
 </div>
 
 <script>
-    var slideIndex = 1;
-    showSlides(slideIndex);
+var slideIndex = 0;
+showSlides();
 
-    function plusDivs(n) {
-        showDivs(slideIndex += n);
-    }
+function plusSlide(n) {
+    slideIndex += n;
+    showSlides();
+}
 
-    function currentDiv(n) {
-        showDivs(slideIndex = n);
-    }
-
-    function showSlides() {
-        var slides = document.getElementsByClassName("slide");
-        var dots = document.getElementsByClassName("dot");
-        for (var i = 0; i < slides.length; i++) {
-            slides[i].classList.remove("active");
-            dots[i].classList.remove("active");
-        }
-        slideIndex++;
-        if (slideIndex > slides.length) {
-            slideIndex = 1;
-        }
-        slides[slideIndex-1].classList.add("active");
-        dots[slideIndex-1].classList.add("active");
-        setTimeout(showSlides, 5000);
-    }
+function showSlides() {
+var slides = document.getElementsByClassName("slide");
+var dots = document.getElementsByClassName("dot");
+for (var i = 0; i < slides.length; i++) {
+    slides[i].classList.remove("active");
+    dots[i].classList.remove("active");
+}
+slideIndex++;
+if (slideIndex > slides.length) {
+    slideIndex = 1;
+}
+slides[slideIndex-1].classList.add("active");
+dots[slideIndex-1].classList.add("active");
+setTimeout(showSlides, 5000);
+}
 </script>
 
 <div class="weather-alerts-container">

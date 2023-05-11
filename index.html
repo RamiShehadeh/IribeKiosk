@@ -57,6 +57,43 @@
             <!-- <button class="home-button" data-target="alerts" onclick="this.classList.toggle('active')">
                 <i class="fas fa-home"></i>
             </button> -->
+            <div class="accessibility-container">
+                <div class="buttons-wrapper">
+                    <button class="accessibility-back-button">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <button class="accessibility-button">
+                        <i class="fas fa-wheelchair" ></i>
+                    </button>
+                    <button class="volume-button">
+                        <i class="fas fa-volume-high" ></i>
+                    </button>
+                    <button class="volume-mute-button">
+                        <i class="fas fa-volume-mute" ></i>
+                    </button>    
+                </div>
+
+                <div class="accessibility-options" id = "access-options">
+                    <div class="accessibility-options-content">
+                        <span class="close" style="font-size: 45px;">&times;</span>
+                        <h1 style="text-align: center;">Accessibility Options</h1>
+                        <!-- <h3> accessibility options</h3> -->
+                        <button class="option-button">
+                            <i class="fas fa-search-plus"></i> Zoom In
+                        </button>
+                        <button class="option-button">
+                            <i class="fas fa-search-minus"></i> Zoom Out
+                        </button>
+                        <button class="option-button" id = "toggle-grayscale">
+                            <i class="fas fa-low-vision"></i> Color Blind Mode
+                        </button>
+                        <button class="option-button" id = "toggle-grayscale">
+                            <i class="fas fa-ear-listen"></i> Screen Reader
+                        </button>
+                        <!-- Add more accessibility options as needed -->
+                    </div>
+                </div>
+            </div>
             <b style="text-align: center; font-size: 25px; margin-bottom: 10px;">10:41 PM <br> 67°F (19°C)</b>
             <button class="tab-button" data-target="home" onclick="this.classList.toggle('active')">Home</button>
             <button class="tab-button" data-target="building-map" onclick="this.classList.toggle('active')">Building Map</button>
@@ -848,43 +885,6 @@ window.addEventListener("DOMContentLoaded", function () {
         </div>
         <nav class="vertical-menu-right">
             <img src="data/umd_logo.png" alt="UMD" class="logo" />
-            <div class="accessibility-container">
-                <div class="buttons-wrapper">
-                    <button class="accessibility-back-button">
-                        <i class="fas fa-arrow-left"></i>
-                    </button>
-                    <button class="accessibility-button">
-                        <i class="fas fa-wheelchair" ></i>
-                    </button>
-                    <button class="volume-button">
-                        <i class="fas fa-volume-high" ></i>
-                    </button>
-                    <button class="volume-mute-button">
-                        <i class="fas fa-volume-mute" ></i>
-                    </button>    
-                </div>
-
-                <div class="accessibility-options" id = "access-options">
-                    <div class="accessibility-options-content">
-                        <span class="close" style="font-size: 45px;">&times;</span>
-                        <h1 style="text-align: center;">Accessibility Options</h1>
-                        <!-- <h3> accessibility options</h3> -->
-                        <button class="option-button">
-                            <i class="fas fa-search-plus"></i> Zoom In
-                        </button>
-                        <button class="option-button">
-                            <i class="fas fa-search-minus"></i> Zoom Out
-                        </button>
-                        <button class="option-button" id = "toggle-grayscale">
-                            <i class="fas fa-low-vision"></i> Color Blind Mode
-                        </button>
-                        <button class="option-button" id = "toggle-grayscale">
-                            <i class="fas fa-ear-listen"></i> Screen Reader
-                        </button>
-                        <!-- Add more accessibility options as needed -->
-                    </div>
-                </div>
-            </div>
             
             <button class="tab-button" data-target="hours" onclick="this.classList.toggle('active')">Office Hours</button>
             <button class="tab-button" data-target="event-calendar" onclick="this.classList.toggle('active')">Event Calendar</button>

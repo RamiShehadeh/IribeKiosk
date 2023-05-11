@@ -2,7 +2,7 @@
 
 <!-- Weather & Time -->
 <div class="time-container"> 
-    <div id = "current-time">
+    <!-- <div id = "current-time">
         <script>
             function updateTime() {
             const now = new Date();
@@ -26,7 +26,7 @@
 
         updateTime();
         </script>
-    </div>
+    </div> -->
 </div>
 
 
@@ -40,6 +40,8 @@
     <div class="slide fade">
         <img src="../data/slideshow2.jpg">
     </div>
+    <button class="w3-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+    <button class="w3-button w3-display-right" onclick="plusDivs(+1)">&#10095;</button>
 </div>
 
 <div class="dots-container">
@@ -49,28 +51,36 @@
 </div>
 
 <script>
-var slideIndex = 0;
-showSlides();
+    var slideIndex = 1;
+    showSlides(slideIndex);
 
-function showSlides() {
-var slides = document.getElementsByClassName("slide");
-var dots = document.getElementsByClassName("dot");
-for (var i = 0; i < slides.length; i++) {
-    slides[i].classList.remove("active");
-    dots[i].classList.remove("active");
-}
-slideIndex++;
-if (slideIndex > slides.length) {
-    slideIndex = 1;
-}
-slides[slideIndex-1].classList.add("active");
-dots[slideIndex-1].classList.add("active");
-setTimeout(showSlides, 5000);
-}
+    function plusDivs(n) {
+        showDivs(slideIndex += n);
+    }
+
+    function currentDiv(n) {
+        showDivs(slideIndex = n);
+    }
+
+    function showSlides() {
+        var slides = document.getElementsByClassName("slide");
+        var dots = document.getElementsByClassName("dot");
+        for (var i = 0; i < slides.length; i++) {
+            slides[i].classList.remove("active");
+            dots[i].classList.remove("active");
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {
+            slideIndex = 1;
+        }
+        slides[slideIndex-1].classList.add("active");
+        dots[slideIndex-1].classList.add("active");
+        setTimeout(showSlides, 5000);
+    }
 </script>
 
 <div class="weather-alerts-container">
-    <div class = "weather-social">
+    <!-- <div class = "weather-social">
         <div id="weather-widget">
             <h3>Current Weather</h3>
             <div class="weather-content">
@@ -84,7 +94,7 @@ setTimeout(showSlides, 5000);
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <div class="alerts-container-bottom">
         <h2 style="text-align: left;">Alerts & Announcements</h2>

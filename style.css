@@ -160,8 +160,8 @@ html, body {
     /* position: absolute;  
     top: -30px;
     right: 20px; */
-    position: absolute;
-    right: 54%;
+    /* position: absolute; */
+    /* right: 54%; */
     background-color: #fff;
     border: 2px solid #000;
     border-radius: 50%;
@@ -443,7 +443,7 @@ html, body {
     padding: 10px;
     margin-bottom: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 150%;
+    width: 100%;
 }
 
 .notification i {
@@ -466,7 +466,7 @@ html, body {
     padding: 10px;
     margin-bottom: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 150%;
+    width: 100%;
     margin-top: 20px;
     padding-top: 10px;
 }

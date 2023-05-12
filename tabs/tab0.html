@@ -30,26 +30,91 @@
     </div> -->
 </div>
 
+<div class="row">
+    <div class="col" style="float: left;">
+        <div class="slideshow-container" style="margin-left: 50px;">
+            <div class="slide fade">
+                <img src="../data/slideshow0.jpg">
+            </div>
+            <div class="slide fade">
+                <img src="../data/slideshow1.jpg">
+            </div>
+            <div class="slide fade">
+                <img src="../data/slideshow2.jpg">
+            </div>
+        </div>
 
-<div class="slideshow-container">
-    <div class="slide fade">
-        <img src="../data/slideshow0.jpg">
+        <div class="dots-container">
+            <button class="arrow-button-left" style="margin-right: 10px" onclick="plusSlide(-1)"><i class="fas fa-arrow-left"></i></button>
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <button class="arrow-button" style="margin-left: 10px" onclick="plusSlide(-1)"><i class="fas fa-arrow-right"></i></button>
+        </div>
+
     </div>
-    <div class="slide fade">
-        <img src="../data/slideshow1.jpg">
-    </div>
-    <div class="slide fade">
-        <img src="../data/slideshow2.jpg">
+
+    <div class="col">
+        <div class="alert-scroll">
+            <div class="alerts-container-bottom">
+                <h2 style="text-align: left;">Alerts & Announcements</h2>
+                <div class="alert">
+                    <i class="fas fa-exclamation-triangle" style="color: red;"></i>
+                    <span> SEVERE WEATHER ALERT: Heavy Rain expected throughout the day.</span>
+                </div>
+
+                <div class="notification">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Student Feedback on Course Experiences Surveys Now Open!</span>
+                </div>
+                <div class="notification">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Room change: CMSC434 has been moved to Room 1104.</span>
+                </div>
+                <div class="notification">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Room change: CMSC131 has been moved to Room 2107. </span>
+                </div>
+                <div class="notification">
+                    <i class="fas fa-info-circle"></i>
+                    <span>PSA: Campus Drive closed due to construction. </span>
+                </div>
+                <div class="notification">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Free cookies and juice at the front lobby!</span>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 
-<div class="dots-container">
-    <button class="arrow-button-left" style="margin-right: 50px" onclick="plusSlide(-1)"><i class="fas fa-arrow-left"></i></button>
-    <span class="dot active"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <button class="arrow-button" style="margin-right: 50px" onclick="plusSlide(-1)"><i class="fas fa-arrow-right"></i></button>
-</div>
+<style>
+    .col {
+        float: left;
+        width: 50%;
+        
+    }
+
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .alert-scroll {
+        /* float: right;
+        width:  */
+        overflow-y: scroll;
+        height: 600px;
+        margin-left: 100px;
+        /* background-color: blue; */
+    }
+
+</style>
+
+
+
 
 <script>
 var slideIndex = 0;
@@ -77,43 +142,3 @@ setTimeout(showSlides, 5000);
 }
 </script>
 
-<div class="weather-alerts-container">
-    <!-- <div class = "weather-social">
-        <div id="weather-widget">
-            <h3>Current Weather</h3>
-            <div class="weather-content">
-                <div class="weather-icon">
-                    <img id="weather-icon" src="" alt="Weather icon">
-                </div>
-                <div class="weather-details">
-                    <p id="location"></p>
-                    <p id="temperature"></p>
-                    <p id="condition"></p>
-                </div>
-            </div>
-        </div>
-    </div> -->
-
-    <div class="alerts-container-bottom">
-        <h2 style="text-align: left;">Alerts & Announcements</h2>
-        <div class="alert">
-            <i class="fas fa-exclamation-triangle" style="color: red;"></i>
-            <span> SEVERE WEATHER ALERT: Heavy Rain expected throughout the day.</span>
-        </div>
-        <div class="notification">
-            <i class="fas fa-info-circle"></i>
-            <span>Room change: CMSC434 has been moved to Room 1104.</span>
-        </div>
-        <div class="notification">
-            <i class="fas fa-info-circle"></i>
-            <span>Room change: CMSC131 has been moved to Room 2107. </span>
-        </div>
-        <!-- <div class="notification">
-            <i class="fas fa-info-circle"></i>
-            <span>PSA: Free deodorant is being distributed in Room 4156 </span>
-        </div> -->
-    </div>
-</div>
-<!-- Alerts -->
-
-<!-- Add more notifications as needed --> 
